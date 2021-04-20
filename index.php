@@ -1,4 +1,6 @@
 <?php
+$donnees['titre_page'] = "Page d'accueil";
+
 include "debut-page.inc.php";
 ?>
 
@@ -39,21 +41,21 @@ include "debut-page.inc.php";
       <div class="card-body">
         <h5 class="card-title">Activité 1</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Consulter</a>
+        <a href="#" class="btn btn-primary rounded-pill">Consulter</a>
       </div>
     </div>
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Activité 2</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Consulter</a>
+        <a href="#" class="btn btn-primary rounded-pill">Consulter</a>
       </div>
     </div>
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Activité 3</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Consulter</a>
+        <a href="#" class="btn btn-primary rounded-pill">Consulter</a>
       </div>
     </div>
   </div>

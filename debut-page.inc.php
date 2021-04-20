@@ -8,7 +8,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet">
-    <title>Accueil</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="images/x-icon" />
+    <title><?php echo $donnees['titre_page']; ?></title>
   </head>
   <body>
     <header>
@@ -20,13 +21,11 @@
               <!--- Image logo -->
             <img src="images/logo_5.png" height="80" alt="logo" id="logo">
           </a>
-          <div>
-
           <div class="icon">
             <div class="case" id="recherche">
             <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
-              <button class="btn btn-primary" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <input class="form-control me-2 rounded-pill" type="search" placeholder="Recherche" aria-label="Search">
+              <button class="btn btn-primary rounded-pill" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
               </svg>
               <span class="visually-hidden">Button</span>
@@ -70,15 +69,15 @@
                   ACTIVITES
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">3-5 ans</a></li>
-                  <li><a class="dropdown-item" href="#">6-8 ans</a></li>
-                  <li><a class="dropdown-item" href="#">9-11 ans</a></li>
-                  <li><a class="dropdown-item" href="#">Tout</a></li>
+                  <li><a class="dropdown-item" href="activité.php?n=1">3-5 ans</a></li>
+                  <li><a class="dropdown-item" href="activité.php?n=2">6-8 ans</a></li>
+                  <li><a class="dropdown-item" href="activité.php?n=3">9-11 ans</a></li>
+                  <li><a class="dropdown-item" href="activité.php">Tout</a></li>
                 </ul>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">COLORIAGES</a>
+                <a class="nav-link active" aria-current="page" href="coloriage.php">COLORIAGES</a>
               </li>
 
               <li class="nav-item dropdown">
@@ -86,10 +85,10 @@
                   JEUX
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">3-5 ans</a></li>
-                  <li><a class="dropdown-item" href="#">6-8 ans</a></li>
-                  <li><a class="dropdown-item" href="#">9-11 ans</a></li>
-                  <li><a class="dropdown-item" href="#">Tout</a></li>
+                  <li><a class="dropdown-item" href="jeu.php?n=1">3-5 ans</a></li>
+                  <li><a class="dropdown-item" href="jeu.php?n=2">6-8 ans</a></li>
+                  <li><a class="dropdown-item" href="jeu.php?n=3">9-11 ans</a></li>
+                  <li><a class="dropdown-item" href="jeu.php">Tout</a></li>
                 </ul>
               </li>
 
@@ -98,10 +97,10 @@
                   THEMES
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Hiver</a></li>
-                  <li><a class="dropdown-item" href="#">Prinptemps</a></li>
-                  <li><a class="dropdown-item" href="#">Eté</a></li>
-                  <li><a class="dropdown-item" href="#">Automne</a></li>
+                  <li><a class="dropdown-item" href="theme.php?n=1">Fin d'année/Hiver</a></li>
+                  <li><a class="dropdown-item" href="theme.php?n=3">Pâques/Prinptemps</a></li>
+                  <li><a class="dropdown-item" href="theme.php?n=4">Plage/Eté</a></li>
+                  <li><a class="dropdown-item" href="theme.php?n=5">Halloween/Automne</a></li>
                 </ul>
               </li>
 
@@ -110,7 +109,7 @@
                   A VOUS DE JOUER !
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">FAQ</a></li>
+                  <li><a class="dropdown-item" href="faq.php">FAQ</a></li>
                   <li><a class="dropdown-item" href="#">Vos idées</a></li>
                 </ul>
               </li>
