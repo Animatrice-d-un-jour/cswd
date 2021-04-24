@@ -2,13 +2,12 @@
 require_once("connexion_base.php");
 
 $reussi = false;
-if (!empty($_POST['pseudo']) && !empty($_POST['motdepasse']) && !empty($_POST['email']) &&
+if (!empty($_POST['pseudo']) && !empty($_POST['motdepasse']) &&
     !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['id_categorie']) &&
     !empty($_POST['consentement']))
 {
     $pseudo = $_POST['pseudo'];
     $motdepasse = $_POST['motdepasse'];
-    $email = $_POST['email'];
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
     $id_categorie = $_POST['id_categorie'];
@@ -19,9 +18,9 @@ if (!empty($_POST['pseudo']) && !empty($_POST['motdepasse']) && !empty($_POST['e
     // vous pouvez aussi tester ici si le mot de passe est sécurisé
     // (donc contient plus que 12 caractères, et des majuscules, miniscules, caractères spéciaux)
 
-    $requete="INSERT INTO membre (pseudo,motdepasse,prenom,nom,email,id_categorie,dateinscrit) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+    $requete="INSERT INTO projet_membre (pseudo,prenom,nom,motdepasse,dateinscrit,id_categorie) VALUES (?, ?, ?, ?, NOW(), ?)";
     $reponse=$pdo->prepare($requete);
-    $reponse->execute(array($pseudo, $motdepasse_crypte, $prenom, $nom, $email, $id_categorie));
+    $reponse->execute(array($pseudo, $prenom, $nom,$motdepasse_crypte,  $id_categorie));
     $reussi = true;
 }
 ?>
@@ -36,15 +35,6 @@ if (!empty($_POST['pseudo']) && !empty($_POST['motdepasse']) && !empty($_POST['e
     if ($reussi == true)
     {
     ?>
-        <h2>Récapitulatif des informations</h2>
-        <p>
-            Nom : <?php echo $nom; ?><br />
-            Prénom :<?php echo $prenom; ?><br />
-            Adresse email : <?php echo $email; ?><br />
-            Catégorie : <?php echo $id_categorie; ?><br />
-            Pseudo : <?php echo $pseudo; ?><br />
-            Mot de passe : **********<br />
-        </p>
         <a href="connexion.php"> Connexion</a>
     <?php
     }
