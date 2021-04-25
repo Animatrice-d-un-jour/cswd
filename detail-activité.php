@@ -26,48 +26,76 @@ include "debut-page.inc.php";
     </ol>
   </nav>
 
-  <h1> <?php echo $enregistrements[0]['titre']?> </h1>
+    <h1> <?php echo $enregistrements[0]['titre']?> </h1>
 
-    <h5> THEME : </h5> <?php echo $enregistrements[0]['nom'] ?>
-    <h5> AGE : </h5> <?php echo $enregistrements[0]['tranche_age'] ?>
-    <h5> DUREE : </h5> <?php echo $enregistrements[0]['duree'] ?>
-
-    <img src="activités/<?php echo $enregistrements[0]['id'] ?>.jpg" class="card-img-top" alt="..." id="activités">
-    <h5> Vous avez besoin de:</h5>
-    <?php echo $enregistrements[0]['materiel']?>
-    <br>
-
-    <h5> Déroulement de l'activité: </h5>
-    <?php echo $enregistrements[0]['deroulement']?>
-    <br>
-
-    <h5> Les résultats de vos bouts de chou:</h5>
-    // ajouter les résultats des internautes
-    <br>
-
-    <h5> Les commentaires des internautes:</h5>
-    // ajouter les commentaires des internautes
-    <br>
-
-    <h5> Voici le formulaire pour laisser votre commentaire</h5>
-    <div class="formulaire_question">
-    <form action="ajouter-commentaire-activité.php" method="post">
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" placeholder="Votre pseudo" required="required" id="pseudo" name="pseudo">
-          <label for="pseudo">Votre pseudo</label>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h6> THEME : </h6> <?php echo $enregistrements[0]['nom'] ?>
         </div>
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="commentaire" placeholder="Votre commentaire" required="required" name="commentaire">
-          <label for="commentaire">Votre commentaire</label>
+        <div class="col">
+          <h6> AGE : </h6> <?php echo $enregistrements[0]['tranche_age'] ?>
         </div>
-        <div class="col-auto">
-        <button type="submit" class="btn btn-primary rounded-pill">Envoyer</button>
+        <div class="col">
+          <h6> DUREE : </h6> <?php echo $enregistrements[0]['duree'] ?>
+        </div>
       </div>
-    </form>
+      <div class="row">
+        <div class="col">
+          <img src="activités/<?php echo $enregistrements[0]['id'] ?>.jpg" width="400" height="400" id="activités">
+        </div>
+        <div class="col">
+          <h6> Vous avez besoin de:</h6>
+          <?php echo $enregistrements[0]['materiel']?>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6> Déroulement de l'activité: </h6>
+          <?php echo $enregistrements[0]['deroulement']?>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6> Les résultats de vos bouts de chou:</h6>
+            <form action="ajouter-photo.php" enctype="multipart/form-data" method="post">
+            <input type="text" name="nom" /><br />
+                <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+                <input type="file" name="fichier" /><br />
+                <input type="submit" />
+            </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6> Les commentaires des internautes:</h6>
+          // ajouter les commentaires des internautes
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="formulaire_question">
+          <h6 id="gras">Voici le formulaire pour laisser votre commentaire</h6>
+          <form action="ajouter-commentaire-activité.php" method="post">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" placeholder="Votre pseudo" required="required" id="pseudo" name="pseudo">
+                <label for="pseudo">Votre pseudo</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="commentaire" placeholder="Votre commentaire" required="required" name="commentaire">
+                <label for="commentaire">Votre commentaire</label>
+              </div>
+              <div class="col-auto">
+              <button type="submit" class="btn btn-primary rounded-pill">Envoyer</button>
+            </div>
+          </form>
+          </div>
+          </form>
+        </div>
+      </div>
     </div>
-    </form>
-    <br>
 
 </main>
 
 <?php include "fin-page.inc.php"; ?>
+
