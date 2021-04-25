@@ -62,7 +62,7 @@ include "debut-page.inc.php";
         <div class="col">
           <div class="formulaire_question">
           <h6 id="gras">Voici le formulaire pour laisser votre commentaire</h6>
-          <form action="ajouter-commentaire-activité.php" method="post">
+          <form action="ajouter-commentaire-jeu.php" method="post">
               <div class="form-floating mb-3">
                 <input type="text" class="form-control" placeholder="Votre pseudo" required="required" id="pseudo" name="pseudo">
                 <label for="pseudo">Votre pseudo</label>
