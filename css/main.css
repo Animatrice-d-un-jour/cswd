@@ -308,3 +308,8 @@ text-decoration: none
 .main {
 border-radius: 0px;
 }
+
+.image_activité 
+{
+float:left;
+}
