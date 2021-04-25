@@ -184,3 +184,9 @@ input[type=text],input[type=email]
 {
   text-align:center;
 }
+
+
+.image_activité 
+{
+float:left;
+}
