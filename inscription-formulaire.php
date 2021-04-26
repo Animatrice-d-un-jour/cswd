@@ -18,7 +18,7 @@ require_once("connexion_base.php");
     <div class="image">
       <div class="main2">
         <p class="sign" align="center">S'inscrire</p>
-        <form action="inscription-enregistrer.php" method="post" class="form1" novalidate>
+        <form action="inscription-enregistrer.php" method="post" class="form1">
           <input class="pseud " type="text" align="center" name="pseudo" placeholder="Nom d'utilisateur">
           <input class="pseud " type="text" align="center" name="nom"placeholder="Nom">
           <input class="pseud " type="text" align="center" name="prenom" placeholder="Prénom">
@@ -61,26 +61,6 @@ require_once("connexion_base.php");
           <input class="submit" type="submit" align="center" value="Inscription"/>
           <p class="new" align="center"><a class="co" href="connexion.php">Se connecter</p>
         </form>
-        <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function() {
-          'use strict';
-          window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('form1');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-              form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-              }, false);
-            });
-          }, false);
-        })();
-        </script>
       </div>
     </div>
   </body>
