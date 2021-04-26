@@ -3,7 +3,7 @@ require_once("connexion_base.php");
 
 $id = $_GET['id']; // Récupération de paramètres de type $_GET
 
-$requete = "SELECT * FROM projet_fiche WHERE id = $id;";
+$requete = "SELECT projet_fiche.*,tranche_age,nom FROM projet_fiche,projet_age,projet_theme WHERE projet_fiche.id_age = projet_age.id AND projet_fiche.id_theme = projet_theme.id AND projet_fiche.id = $id;";
 $reponse = $pdo->prepare($requete);
 $reponse->execute();
 // récupérer tous les enregistrements dans un tableau
