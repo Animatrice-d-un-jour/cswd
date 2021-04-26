@@ -14,10 +14,6 @@ if (!empty($_POST['pseudo']) && !empty($_POST['motdepasse']) &&
 
     $motdepasse_crypte = password_hash($motdepasse, PASSWORD_DEFAULT);
 
-    // vous pouvez aussi tester ici si le pseudo est le mail ne sont pas déjà utilisé
-    // vous pouvez aussi tester ici si le mot de passe est sécurisé
-    // (donc contient plus que 12 caractères, et des majuscules, miniscules, caractères spéciaux)
-
     $requete="INSERT INTO projet_membre (pseudo,prenom,nom,motdepasse,dateinscrit,id_categorie) VALUES (?, ?, ?, ?, NOW(), ?)";
     $reponse=$pdo->prepare($requete);
     $reponse->execute(array($pseudo, $prenom, $nom,$motdepasse_crypte,  $id_categorie));
