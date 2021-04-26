@@ -19,10 +19,10 @@ require_once("connexion_base.php");
       <div class="main2">
         <p class="sign" align="center">S'inscrire</p>
         <form action="inscription-enregistrer.php" method="post" class="form1">
-          <input class="pseud " type="text" align="center" name="pseudo" placeholder="Nom d'utilisateur">
-          <input class="pseud " type="text" align="center" name="nom"placeholder="Nom">
-          <input class="pseud " type="text" align="center" name="prenom" placeholder="Prénom">
-          <input class="pass" type="password" align="center" name="motdepasse" placeholder="Mot de passe">
+          <input class="pseud " type="text" align="center" name="pseudo" placeholder="Nom d'utilisateur" required>
+          <input class="pseud " type="text" align="center" name="nom" placeholder="Nom" required>
+          <input class="pseud " type="text" align="center" name="prenom" placeholder="Prénom" required>
+          <input class="pass" type="password" align="center" name="motdepasse" placeholder="Mot de passe" required>
           <p>
             <label for="id_categorie">Catégorie :</label>
             <select name="id_categorie">
