@@ -1,0 +1,439 @@
+.jumbotron
+{
+  background-color: #00bcd4;
+}
+.cards
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+.card
+{
+  margin: 20px;
+  width: 18rem;
+
+}
+#draw
+{
+  width:auto;
+}
+.btn
+{
+  background-color: #4897D8;
+}
+
+.btn.btn-primary.rounded-pill.espace
+{
+  position: relative;
+  bottom : 10px;
+  left : 15px;
+}
+
+#carouselExampleIndicators
+{
+  margin :30px;
+}
+
+.carousel-inner
+{
+  max-height: 350px;
+}
+
+h2,h3
+{
+  color:#4897D8;
+}
+
+.photo
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.dernier_post
+{
+  margin: 50px;
+}
+
+#people,#heart
+{
+  color:#FA6E59;
+}
+.icon
+{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.case
+{
+  margin :5px;
+}
+#recherche
+{
+  margin-right: 30px;
+}
+footer
+{
+  text-align: center;
+  background-color: #FA6E59;
+  color: white;
+  display : table-row;
+}
+.navbar
+{
+  border-bottom:1px solid #FA6E59;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+main
+{
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.navbar-nav.me-auto.mb-2.mb-lg-0 li a
+{
+  color: #4897D8;
+}
+.navbar-nav.me-auto.mb-2.mb-lg-0 li a:active
+{
+  background-color: white;
+  color:#1d25af;
+}
+
+.navbar-nav li
+{
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+.info
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    text-align: center;
+}
+.creatrice
+{
+  margin: 10px;
+}
+.description
+{
+  text-align: justify;
+}
+.bi
+{
+  vertical-align: -.125em;
+}
+.fiches
+{
+  padding: 30px;
+}
+#coloriage
+{
+  max-width: 50%;
+	height: auto;
+  border:1px solid black;
+  margin: 0 auto;
+}
+#telechargement
+{
+
+  padding: 20px;
+  text-align: center;
+}
+a{color: #4897D8;}
+
+a:hover{color:#4897D8;}
+
+.formulaire_question
+{
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: 30px 0;
+}
+#gras
+{
+  font-weight: bold;
+}
+.form-control,.form-select
+{
+  border-bottom: 1px solid #4897D8;
+}
+#pseudo
+{
+  width  :50%;
+}
+.ask
+{
+  border-radius: 10px;
+  background-color: #ADD8E6;
+  padding: 20px;
+  margin: 30px 0;
+}
+.answer
+{
+  padding: 0 20px;
+}
+.image_coloriage
+{
+  text-align:center;
+}
+
+.body {
+background-image: url("images/paint.jpg");
+background-color: #cccccc;
+height: 1032px;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+
+.main1 {
+background-color: #FFFFFF;
+width: 500px;
+height: 400px;
+margin: 7em auto;
+border-radius: 1.5em;
+box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.main2 {
+background-color: #FFFFFF;
+width: 500px;
+height: 650px;
+margin: 7em auto;
+border-radius: 1.5em;
+box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.sign {
+padding-top: 60px;
+color: #FA6E59;
+font-family: 'Ubuntu', sans-serif;
+font-weight: bold;
+font-size: 50px;
+}
+
+.pseud {
+width: 76%;
+color: rgb(38, 50, 56);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(136, 126, 126, 0.04);
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 27px;
+font-family: 'Ubuntu', sans-serif;
+}
+.check {
+font-size: 10px;
+margin-left: 30px;
+margin-right: 20px;
+margin-bottom: 20px;
+text-align: center;
+
+}
+form.form1 {
+padding-top: 5px;
+}
+
+.pass {
+width: 76%;
+color: rgb(38, 50, 56);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(136, 126, 126, 0.04);
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 27px;
+font-family: 'Ubuntu', sans-serif;
+}
+
+
+.pseud:focus, .pass:focus {
+border: 2px solid rgba(0, 0, 0, 0.18) !important;
+
+}
+
+.submit {
+cursor: pointer;
+border-radius: 5em;
+color: #fff;
+background: linear-gradient(to right, #F8A055, #FFDB5C);
+border: 0;
+padding-left: 40px;
+padding-right: 40px;
+padding-bottom: 10px;
+padding-top: 10px;
+font-family: 'Ubuntu', sans-serif;
+margin-left: 35%;
+font-size: 13px;
+box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+.new {
+text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+color: #F8A055;
+padding-top: 10px;
+padding-left: 5px
+}
+
+a.co {
+text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+color: #FFDB5C;
+text-decoration: none
+}
+
+
+html, body {
+	height: 100%;
+	margin: 0; padding: 0;
+}
+body {
+	display : table;
+	width: 100%;
+}
+
+
+
+
+
+#facebook, #twitter,#instagram,#youtube
+{
+  color:white;
+}
+.socials
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+.sans_puce
+{
+  list-style-type: none;
+  text-align: left;
+}
+#plan_site
+{
+  padding:50px;
+}
+.plan_site
+{
+  color: white;
+  text-decoration:none;
+}
+.plan_site:hover
+{
+  color: white;
+}
+
+.form-floating
+{
+  margin :10px 10px;
+}
+
+#floatingTextarea2, #floatingTextarea
+{
+  height: 150px;
+}
+#floatingTextarea
+{
+  height: 100px;
+}
+#bouton_idee
+{
+  margin :10px;
+}
+
+.form-control.me-2.rounded-pill
+{
+  border: 1px solid #CCCC;
+}
+
+.btn.btn-primary.rounded-pill.color
+{
+  background-image: linear-gradient(225deg, #4bc5c5 0, #46c4cd 7.14%, #45c4d5 14.29%, #46c3dc 21.43%, #4cc1e2 28.57%, #54c0e7 35.71%, #5fbeec 42.86%, #6bbcef 50%, #78baf1 57.14%, #85b7f2 64.29%, #92b4f2 71.43%, #9eb2f1 78.57%, #abafee 85.71%, #b6aceb 92.86%, #c1a9e6 100%);
+  border: 1px solid #287EC9;
+  position: relative;
+  bottom : 10px;
+  left : 15px;
+}
+
+button.main1{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+.like{
+  justify-content: right;
+}
+
+@media (max-width: 1024px)
+{
+  main
+  {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+@media (max-width: 640px)
+{
+/* CSS mobile ici */
+.card
+{
+  margin: 5px;
+}
+.fiches
+{
+  padding: 0px;
+}
+.dernier_post
+{
+  margin: 20px;
+}
+.navbar
+{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+main
+{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.breadcrumb
+{
+  margin: 10px 0;
+}
+}
+@media (max-width: 600px) {
+.main {
+border-radius: 0px;
+}
