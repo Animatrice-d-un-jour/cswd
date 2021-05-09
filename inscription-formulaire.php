@@ -17,11 +17,12 @@ require_once("connexion_base.php");
   <body class="body">
     <div class="image">
       <div class="main2">
-        <p class="sign" align="center">S'inscrire</p>
+        <p class="sign2" align="center">S'inscrire</p>
         <form action="inscription-enregistrer.php" method="post" class="form1" novalidate>
           <input class="pseud " type="text" align="center" name="pseudo" placeholder="Nom d'utilisateur">
-          <input class="pseud " type="text" align="center" name="nom"placeholder="Nom">
-          <input class="pseud " type="text" align="center" name="prenom" placeholder="Prénom">
+          <input class="pseud " type="text" align="center" name="prenom"placeholder="Prénom">
+          <input class="pseud " type="text" align="center" name="nom" placeholder="Nom">
+          <input class="pseud " type="text" align="center" name="email" placeholder="Adresse Mail">
           <input class="pass" type="password" align="center" name="motdepasse" placeholder="Mot de passe">
           <div class="consent">
             <label for="id_categorie">Catégorie :</label>
@@ -57,13 +58,17 @@ require_once("connexion_base.php");
                 Vous devez accepter avant de continuer.
               </div>
             </div>
-          </div>            
+          </div>
           </div>
           <input class="submit" type="submit" align="center" value="Inscription"/>
           <p class="new" align="center"><a class="co" href="connexion.php">Se connecter</p>
         </form>
 
       </div>
+    </div>
+  </body>
+</html>
+
     </div>
   </body>
 </html>
