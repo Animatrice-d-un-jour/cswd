@@ -395,6 +395,47 @@ button.main1{
   justify-content: right;
 }
 
+.title
+{
+  text-align: center;
+  color: #FA6E59;
+}
+
+.theme
+{
+  text-align: center;
+  color: #FFDB5C;
+}
+
+.age
+{
+  text-align: center;
+  color: #4E9BD9;
+}
+
+.duree
+{
+  text-align: center;
+  color: #F8A055;
+}
+
+.materiel
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #44635E;
+}
+
+.deroulement
+{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: #df6ae8;
+}
+
+
 @media (max-width: 1024px)
 {
   main
