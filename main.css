@@ -437,7 +437,43 @@ button.main1{
   align-items: center;
   color: #df6ae8;
 }
+.picto
+{
+  display:flex;
+  flex-direction: row;
+}
+.stick
+{
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+  border:none;
+  background-color: transparent;
+}
+#flèche
+{
+  color: grey;
+}
 
+.d-block.w-100.dos
+{
+  display: none !important;
+}
+@media (max-width: 426px)
+{
+  .stick
+  {
+    display: none;
+  }
+  .d-block.w-100.uno
+  {
+    display: none !important;
+  }
+  .d-block.w-100.dos
+  {
+    display: block !important;
+  }
+}
 
 @media (max-width: 1024px)
 {
