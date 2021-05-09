@@ -3,13 +3,14 @@ require_once("connexion_base.php");
 
 $reussi = false;
 if (!empty($_POST['pseudo']) && !empty($_POST['motdepasse']) &&
-    !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['id_categorie']) &&
+    !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['email']) && !empty($_POST['id_categorie']) &&
     !empty($_POST['consentement']))
 {
     $pseudo = $_POST['pseudo'];
     $motdepasse = $_POST['motdepasse'];
     $prenom = $_POST['prenom'];
     $nom = $_POST['nom'];
+    $email = $_POST['email'];
     $id_categorie = $_POST['id_categorie'];
 
     $motdepasse_crypte = password_hash($motdepasse, PASSWORD_DEFAULT);
@@ -20,7 +21,7 @@ if (!empty($_POST['pseudo']) && !empty($_POST['motdepasse']) &&
 
     $requete="INSERT INTO projet_membre (pseudo,prenom,nom,motdepasse,dateinscrit,id_categorie) VALUES (?, ?, ?, ?, NOW(), ?)";
     $reponse=$pdo->prepare($requete);
-    $reponse->execute(array($pseudo, $prenom, $nom,$motdepasse_crypte,  $id_categorie));
+    $reponse->execute(array($pseudo, $prenom, $nom,$email,$motdepasse_crypte, $id_categorie));
     $reussi = true;
 }
 ?>
