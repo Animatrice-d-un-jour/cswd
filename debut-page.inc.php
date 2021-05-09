@@ -34,7 +34,7 @@
             </div>
 
             <div class="case">
-              <a href="#">  <!--- il faudra ajouter un lien -->
+              <a href="connexion.php">  <!--- il faudra ajouter un lien -->
                   <!--- Icone membre -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16" id="people">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
