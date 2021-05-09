@@ -26,30 +26,26 @@ require_once("connexion_base.php");
         $pseudo = $_POST['pseudo'];
         $motdepasse = $_POST['motdepasse'];
 
-        // exécuter une requete MySQL de type SELECT .. WHERE
+        // exécuter une requete MySQL de type SELECT .. WHERE
         $requete = "SELECT * FROM projet_membre WHERE pseudo = ?";
         $reponse = $pdo->prepare($requete);
         $reponse->execute(array($pseudo));
 
-        // récupérer tous les enregistrements dans un tableau
+        // récupérer tous les enregistrements dans un tableau
         $enregistrements = $reponse->fetchAll();
 
         // connaitre le nombre d'enregistrements
         $nombreReponses = count($enregistrements);
 
         // tester si un enregistrement existe
-        // (on suppose qu'un même pseudo n'existe qu'une fois !)
+        // (on suppose qu'un même pseudo n'existe qu'une fois !)
         if ($nombreReponses > 0)
         {
-            // on vérifie si le mot de passe de la base de données au mot de passe du formulaire
+            // on vérifie si le mot de passe de la base de données au mot de passe du formulaire
             $motdepasse_crypte = $enregistrements[0]['motdepasse'];
             if (password_verify($motdepasse, $motdepasse_crypte))
             {
-              ?>
-              <p> Bienvenu ! Vous êtes maintenant connecté.</p>
-              <a href="index.php"> Retour à la page d'acceuil</a></br>
-              <a href="deconnexion.php"> Se déconnecter</a>
-              <?php
+              header("location:index.php");
               $_SESSION['pseudo'] = $enregistrements[0]['pseudo'];
               $_SESSION['id_projet_membre'] = $enregistrements[0]['id'];
             }
