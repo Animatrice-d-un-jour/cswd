@@ -3,9 +3,9 @@ require_once("connexion_base.php");
 
 $id = $_GET['id']; // Récupération de paramètres de type $_GET
 
-$requete = "SELECT projet_fiche.*,tranche_age,nom FROM projet_fiche,projet_age,projet_theme WHERE projet_fiche.id_age = projet_age.id AND projet_fiche.id_theme = projet_theme.id AND projet_fiche.id = $id;";
+$requete = "SELECT projet_fiche.*,tranche_age,nom FROM projet_fiche,projet_age,projet_theme WHERE projet_fiche.id_age = projet_age.id AND projet_fiche.id_theme = projet_theme.id AND projet_fiche.id = ?;";
 $reponse = $pdo->prepare($requete);
-$reponse->execute();
+$reponse->execute(array($id));
 // récupérer tous les enregistrements dans un tableau
 $enregistrements = $reponse->fetchAll();
 // connaitre le nombre d'enregistrements
