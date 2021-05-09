@@ -7,10 +7,10 @@ require_once("connexion_base.php");
   <head>
 
   </head>
-  <body>
+  <body >
     <?php
     unset($_SESSION['id_projet_membre']);
+    header("location:connexion.php");
     ?>
-    <a herf href="inscription.php"> Page d'inscription</a>
   </body>
 </html>
