@@ -291,7 +291,7 @@ box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
 color: #F8A055;
 padding-top: 10px;
-padding-left: 5px
+padding-left: 5px;
 }
 
 a.co {
@@ -304,14 +304,21 @@ margin-right: 3%;
 .consent
 {
   margin-bottom: 20px;
+  margin-left: 5%;
   text-align: center;
+
 }
 .form-group
 {
   margin-top: 20px;
+  margin-left: 12%;
 }
-
-
+.form-check-label{
+  margin-right: 25%;
+}
+.consentement{
+  margin-right: 22%;
+}
 
 html, body {
 	height: 100%;
