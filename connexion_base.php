@@ -8,9 +8,9 @@ $config_base['nom_base']    = "conceptionweb";
 if (substr($_SERVER['SERVER_NAME'],-17) == "emi.u-bordeaux.fr")
 {
     $config_base['hote']        = "mariadb";
-    $config_base['utilisateur'] = "chlmorel";
-    $config_base['motdepasse']  = "Lesucredesynthèseestinterditdanslecafé";
-    $config_base['nom_base']    = "chlmorel";
+    $config_base['utilisateur'] = "lchaste";
+    $config_base['motdepasse']  = "Bourdianou47";
+    $config_base['nom_base']    = "lchaste";
 }
 
 
@@ -32,3 +32,4 @@ catch (PDOException $exception) {
     echo "Connexion échouée : " . $exception->getMessage();
 }
 ?>
+
