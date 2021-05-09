@@ -23,14 +23,17 @@ include "debut-page.inc.php";
   <div class="carousel-inner">
     <div class="carousel-item active">
       <a href="idee.php">
-        <img src="images/image1.png" class="d-block w-100" alt="image 1">
+        <img src="images/image1.png" class="d-block w-100 uno" alt="image 1">
+        <img src="images/image1_mobile.png" class="d-block w-100 dos" alt="image 1">
       </a>
     </div>
     <div class="carousel-item">
-      <img src="images/image2.png" class="d-block w-100" alt="image 2">
+      <img src="images/image2.png" class="d-block w-100 uno" alt="image 2">
+      <img src="images/image2_mobile.png" class="d-block w-100 dos" alt="image 2">
     </div>
     <div class="carousel-item">
-      <img src="images/image3.png" class="d-block w-100" alt="image 3">
+      <img src="images/image3.png" class="d-block w-100 uno" alt="image 3">
+      <img src="images/image3_mobile.png" class="d-block w-100 dos" alt="image 3">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
