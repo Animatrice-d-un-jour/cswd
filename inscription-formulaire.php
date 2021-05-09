@@ -23,7 +23,7 @@ require_once("connexion_base.php");
           <input class="pseud " type="text" align="center" name="nom"placeholder="Nom">
           <input class="pseud " type="text" align="center" name="prenom" placeholder="Prénom">
           <input class="pass" type="password" align="center" name="motdepasse" placeholder="Mot de passe">
-          <p>
+          <div class="consent">
             <label for="id_categorie">Catégorie :</label>
             <select name="id_categorie">
             <?php
@@ -46,7 +46,7 @@ require_once("connexion_base.php");
                 }
             ?>
             </select>
-          </p>
+
           <div class="form-group">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="consentement" value="false" required/>
@@ -57,10 +57,13 @@ require_once("connexion_base.php");
                 Vous devez accepter avant de continuer.
               </div>
             </div>
+          </div>            
           </div>
           <input class="submit" type="submit" align="center" value="Inscription"/>
           <p class="new" align="center"><a class="co" href="connexion.php">Se connecter</p>
         </form>
+
+
         <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
         (function() {
@@ -81,7 +84,10 @@ require_once("connexion_base.php");
           }, false);
         })();
         </script>
+
+
       </div>
     </div>
   </body>
 </html>
+
