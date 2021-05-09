@@ -10,7 +10,7 @@ require_once("connexion_base.php");
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <title>Inscription</title>
   </head>
@@ -62,29 +62,6 @@ require_once("connexion_base.php");
           <input class="submit" type="submit" align="center" value="Inscription"/>
           <p class="new" align="center"><a class="co" href="connexion.php">Se connecter</p>
         </form>
-
-
-        <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function() {
-          'use strict';
-          window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('form1');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-              form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-              }, false);
-            });
-          }, false);
-        })();
-        </script>
-
 
       </div>
     </div>
