@@ -68,8 +68,3 @@ require_once("connexion_base.php");
     </div>
   </body>
 </html>
-
-    </div>
-  </body>
-</html>
-
