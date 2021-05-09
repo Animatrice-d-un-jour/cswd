@@ -16,7 +16,7 @@ $donnees['titre_page'] =  $enregistrements[0]['titre'];
 include "debut-page.inc.php";
 ?>
 
-<main id="fiches">
+<main class="fiches">
 
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
