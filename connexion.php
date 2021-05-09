@@ -20,23 +20,25 @@ require_once("connexion_base.php");
       if (isset($_SESSION['id_projet_membre']))
       {
         ?>
-        <a href="#">Mes favoris</a>
-        <a href="#">Se déconnecter</a>
+        <div class="main1">
+          <form class="form1"/>
+            <button type="button" align="center" class="submit"><a href="#" >Mes favoris</a></button>
+            <button type="button"  align="center" class="submit"><a href="deconnexion.php">Se déconnecter</a></button>
+          </form>
+        </div>
         <?php
       }
       else
       {
         ?>
-        <div class="image">
-          <div class="main1">
-            <p class="sign" align="center">Se connecter</p>
-            <form action="verifier-connexion.php" method="post" class="form1"/>
-              <input class="pseud" type="text" align="center" placeholder="Nom d'utilisateur" name="pseudo"/>
-              <input class="pass" type="password" align="center" placeholder="Mot de passe" name="motdepasse"  />
-              <input class="submit" align="center" type="submit" value="Connexion"/>
-              <p class="new" align="center"><a class="co" href="inscription-formulaire.php">S'inscrire</p>
-            </form>
-          </div>
+        <div class="main1">
+          <p class="sign" align="center">Se connecter</p>
+          <form action="verifier-connexion.php" method="post" class="form1"/>
+            <input class="pseud" type="text" align="center" placeholder="Nom d'utilisateur" name="pseudo"/>
+            <input class="pass" type="password" align="center" placeholder="Mot de passe" name="motdepasse"  />
+            <input class="submit" align="center" type="submit" value="Connexion"/>
+            <p class="new" align="center"><a class="co" href="inscription-formulaire.php">S'inscrire</p>
+          </form>
         </div>
         <?php
       }
