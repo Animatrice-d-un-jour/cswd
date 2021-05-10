@@ -24,7 +24,7 @@ include "debut-page.inc.php";
 <?php
 
 // exécuter une requete MySQL de type INSERT
-$requete="INSERT INTO projet_commentaire (pseudo,texte,titre,datecreation)
+$requete="INSERT INTO projet_commentaire (id_menbre,id_fiche,texte,titre,datecreation) WHERE projet_commentaire.id_membre=projet_membre.id AND projet_commentaire.id_fiche=projet_fiche.id
 VALUES (?, ?, ?, ?,NOW())";
 $reponse=$pdo->prepare($requete);
 $reponse->execute(array($pseudo, $commentaire, 0));
