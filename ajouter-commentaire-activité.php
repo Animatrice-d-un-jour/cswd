@@ -6,11 +6,11 @@ $commentaire = $_POST['commentaire'];
 
 include "debut-page.inc.php";
  ?>
-<main id="fiches">
+<main class="fiches">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
-      <li class="breadcrumb-item"><a href="activité.php">Activités</a></li>
+      <li class="breadcrumb-item"><a href="fiche.php">Activités et jeux</a></li>
       <li class="breadcrumb-item active" aria-current="page"><?php echo $enregistrements[0]['titre']?></li>
     </ol>
   </nav>
@@ -24,12 +24,12 @@ include "debut-page.inc.php";
 <?php
 
 // exécuter une requete MySQL de type INSERT
-$requete="INSERT INTO projet_commentaire (pseudo,texte,valide,datecreation)
+$requete="INSERT INTO projet_commentaire (pseudo,texte,titre,datecreation)
 VALUES (?, ?, ?, ?,NOW())";
 $reponse=$pdo->prepare($requete);
 $reponse->execute(array($pseudo, $commentaire, 0));
 ?>
 
-<p>Retourner à la page des <a href="activité.php">Activités</a></p>
+<p>Retourner à la page des <a href="fiche.php">Activités et jeux</a></p>
 
 <?php include "fin-page.inc.php"; ?>
