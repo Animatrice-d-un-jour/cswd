@@ -86,7 +86,7 @@ include "debut-page.inc.php";
               if (file_exists("images/activites/".$enregistrements[0]['id'].".jpg"))
                 {?>
                   <div class="col" id ="image-activite">
-                  <img src="images/activites/<?php echo $enregistrements[0]['id'] ?>.jpg" alt="activité-<?php echo $enregistrements[0]['id'] ?>" width="250px">
+                  <img src="images/activites/<?php echo $enregistrements[0]['id'] ?>.jpg" class="rounded-pill" alt="activité-<?php echo $enregistrements[0]['id'] ?>" width="250px">
                   </div>
 
                   <div class="col">
