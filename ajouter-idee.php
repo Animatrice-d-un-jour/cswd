@@ -45,6 +45,7 @@ include "debut-page.inc.php";
   <li><strong>Type :</strong> <?php echo $types[0]['nom']; ?></li>
   <li><strong>Age :</strong> <?php echo $ages[0]['tranche_age']; ?></li>
   <li><strong>Thème :</strong> <?php echo $themes[0]['nom']; ?></li>
+    <li><strong>Durée :</strong> <?php echo $duree." minutes"; ?></li>
   <li><strong>Titre :</strong> <?php echo $titre; ?></li>
   <li><strong>Matériel nécessaire :</strong> <?php echo $materiel; ?></li>
   <li><strong>Déroulement :</strong> <?php echo $deroulement; ?></li>
