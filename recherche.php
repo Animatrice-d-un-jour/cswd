@@ -22,13 +22,14 @@ include "debut-page.inc.php"; ?>
   }
   else
   {
-    $requete = "SELECT * FROM projet_fiche WHERE titre LIKE \"%$mot%\" ;";
+    $requete = "SELECT * FROM projet_fiche WHERE (titre LIKE \"%$mot%\" OR materiel LIKE \"%$mot%\" OR deroulement LIKE \"%$mot%\") ;";
     $reponse = $pdo->prepare($requete);
     $reponse->execute();
     // récupérer tous les enregistrements dans un tableau
     $enregistrements = $reponse->fetchAll();
     // connaitre le nombre d'enregistrements
     $nombreReponses = count($enregistrements);
+
     if ($nombreReponses == "0")
     {
     	echo "<p>Aucun résultat ne correspond à votre recherche</p>";
@@ -58,7 +59,7 @@ include "debut-page.inc.php"; ?>
                 <h5 class="card-title"><?php echo $enregistrements[$i]['titre'];?></h5>
                 <p class="card-text">
                   AGE : <?php echo $enregistrements[$i]['tranche_age'] ?> <br>
-                  DUREE : <?php echo $enregistrements[$i]['duree'] ?><br>
+                  DUREE : <?php echo transforme($enregistrements[$i]['duree']);?><br>
                   THEME : <?php echo $enregistrements[$i]['nom'] ?><br>
                 </p>
               </div>
@@ -75,12 +76,12 @@ include "debut-page.inc.php"; ?>
                    <h5 class="card-title"><?php echo $enregistrements[$i]['titre']." (@". $enregistrements[$i]['pseudo'].")";?></h5>
                    <p class="card-text">
                      AGE : <?php echo $enregistrements[$i]['tranche_age'] ?> <br>
-                     DUREE : <?php echo $enregistrements[$i]['duree'] ?><br>
+                     DUREE : <?php echo transforme($enregistrements[$i]['duree']); ?><br>
                      THEME : <?php echo $enregistrements[$i]['nom'] ?><br>
                    </p>
                  </div>
                  <div>
-                   <a href="detail-fiche?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill color">Consulter</a>
+                   <a href="detail-fiche.php?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill color">Consulter</a>
                  </div>
                  </div>
                  <?php
