@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("connexion_base.php");
 $donnees['titre_page'] = "Vos idées";
 include "debut-page.inc.php";
@@ -20,14 +21,36 @@ include "debut-page.inc.php";
 
    <form action="ajouter-idee.php" method="post">
 
+     <?php if(isset($_SESSION['id_projet_membre']))
+     {
+       $id_membre = $_SESSION['id_projet_membre'];
+       $requete = "SELECT * FROM projet_membre WHERE projet_membre.id = ?;";
+       $reponse = $pdo->prepare($requete);
+       $reponse->execute(array($id_membre));
+       // récupérer tous les enregistrements dans un tableau
+       $membre = $reponse->fetchAll();
+       // connaitre le nombre d'enregistrements
+       $nombreReponses = count($membre);
+       // parcourir le tableau des enregistrements
+
+       ?>
+       <input type="hidden" name="pseudo" value="<?php echo $membre[0]['pseudo']; ?>">
+       <input type="hidden" name="email" value="<?php echo $membre[0]['email']; ?>">
+     <?php
+     }
+     else
+     { ?>
        <div class="form-floating mb-3">
          <input type="text" class="form-control" placeholder="Votre pseudo" required="required" id="pseudo" name="pseudo">
          <label for="pseudo">Votre pseudo</label>
        </div>
+
        <div class="form-floating mb-3">
          <input type="email" class="form-control" placeholder="Votre adresse mail" required="required" id="email" name="email">
          <label for="email">Votre adresse mail</label>
        </div>
+     <?php
+      } ?>
 
      <div class="row g-2">
 
@@ -59,8 +82,8 @@ include "debut-page.inc.php";
 <div class="row g-2">
   <div class="col-md">
 <div class="form-floating">
- <input type="text" class="form-control" id="duree" placeholder="Duree" name="duree" required="required">
- <label for="duree">Durée</label>
+ <input type="number" min="5" class="form-control" id="duree" placeholder="Duree" name="duree" required="required">
+ <label for="duree">Durée en minutes</label>
 </div>
 </div>
 <div class="col-md">
