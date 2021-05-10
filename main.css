@@ -352,11 +352,14 @@ body {
   color: white;
   text-decoration:none;
 }
+.plan_site.gras
+{
+  font-weight: bold;
+}
 .plan_site:hover
 {
   color: white;
 }
-
 .form-floating
 {
   margin :10px 10px;
