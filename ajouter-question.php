@@ -7,7 +7,7 @@ $question = $_POST['question'];
 
 include "debut-page.inc.php";
  ?>
-<main id="fiches">
+<main class="fiches">
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
