@@ -1,47 +1,46 @@
 <footer>
 
   <div class="container" id="plan_site">
-  <div class="row">
-    <div class="col">
-      <ul class="sans_puce">
-      <li id="gras">ACTIVITES</li>
-      <li> <a class="plan_site" href="fiche.php?id=2$n=1">3-5 ans</a></li>
-      <li><a class="plan_site" href="fiche.php?id=2$n=2">6-8 ans</a></li>
-      <li><a class="plan_site" href="fiche.php?id=2$n=3">9-11 ans</a></li>
-      <li><a class="plan_site" href="fiche.php?id=2">Tout</a></li>
-      </ul>
-    </div>
-    <div class="col">
-      <ul class="sans_puce">
-      <li id="gras">JEUX</li>
-      <li><a class="plan_site" href="fiche.php?id=1&n=1">3-5 ans</a></li>
-      <li><a  class="plan_site" href="fiche.php?id=1&n=2">6-8 ans</a></li>
-      <li><a  class="plan_site" href="fiche.php?id=1&n=3">9-11 ans</a></li>
-      <li><a  class="plan_site" href="fiche.php?id=1">Tout</a></li>
-      </ul>
-    </div>
-    <div class="col">
-      <ul class="sans_puce">
-      <li id="gras">THEMES</li>
-      <li><a class="plan_site" href="theme.php?n=1">Fin d'année/Hiver</a></li>
-      <li><a  class="plan_site" href="theme.php?n=3">Pâques/Printemps</a></li>
-      <li><a class="plan_site"  href="theme.php?n=4">Plage/Eté</a></li>
-      <li><a  class="plan_site" href="theme.php?n=5">Halloween/Automne</a></li>
-      </ul>
-    </div>
-    <div class="col">
-      <ul class="sans_puce">
-      <li> <a id="gras" class="plan_site" href="coloriage.php">COLORIAGES</a></li>
-      </ul>
-      <ul class="sans_puce">
-      <li><a id="gras" class="plan_site">A VOUS DE JOUER !</a></li>
-      <li><a class="plan_site" href="faq.php">FAQ</a></li>
-      <li><a class="plan_site" href="#">Vos idées</a></li>
-      </ul>
-    </div>
+      <div class="row">
+        <div class="col">
+          <ul class="sans_puce">
+            <li class="plan_site gras">ACTIVITES</li>
+            <li> <a class="plan_site" href="fiche.php?id=2$n=1">3-5 ans</a></li>
+            <li><a class="plan_site" href="fiche.php?id=2$n=2">6-8 ans</a></li>
+            <li><a class="plan_site" href="fiche.php?id=2$n=3">9-11 ans</a></li>
+            <li><a class="plan_site" href="fiche.php?id=2">Tout</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <ul class="sans_puce">
+            <li class="plan_site gras">JEUX</li>
+            <li><a class="plan_site" href="fiche.php?id=1&n=1">3-5 ans</a></li>
+            <li><a  class="plan_site" href="fiche.php?id=1&n=2">6-8 ans</a></li>
+            <li><a  class="plan_site" href="fiche.php?id=1&n=3">9-11 ans</a></li>
+            <li><a  class="plan_site" href="fiche.php?id=1">Tout</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <ul class="sans_puce">
+            <li class="plan_site gras">THEMES</li>
+            <li><a class="plan_site" href="theme.php?n=1">Fin d'année/Hiver</a></li>
+            <li><a  class="plan_site" href="theme.php?n=3">Pâques/Printemps</a></li>
+            <li><a class="plan_site"  href="theme.php?n=4">Plage/Eté</a></li>
+            <li><a  class="plan_site" href="theme.php?n=5">Halloween/Automne</a></li>
+          </ul>
+        </div>
+        <div class="col">
+          <ul class="sans_puce">
+            <li> <a class="plan_site gras" href="coloriage.php">COLORIAGES</a></li>
+          </ul>
+          <ul class="sans_puce">
+            <li><a class="plan_site gras">A VOUS DE JOUER !</a></li>
+            <li><a class="plan_site" href="faq.php">FAQ</a></li>
+            <li><a class="plan_site" href="#">Vos idées</a></li>
+          </ul>
+        </div>
+      </div>
   </div>
-  </div>
-</div>
 
 
   <div class="socials">
