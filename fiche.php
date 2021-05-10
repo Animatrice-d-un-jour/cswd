@@ -110,7 +110,7 @@ include "debut-page.inc.php";
           </p>
         </div>
         <div>
-          <a href="detail-fiche?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill espace">Consulter</a>
+          <a href="detail-fiche.php?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill espace">Consulter</a>
         </div>
         </div>
         <?php
@@ -165,7 +165,7 @@ include "debut-page.inc.php";
 
             </div>
             <div>
-              <a href="detail-fiche?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill color">Consulter</a>
+              <a href="detail-fiche.php?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill color">Consulter</a>
             </div>
             </div>
             <?php
