@@ -1,5 +1,6 @@
 <?php
 require_once("connexion_base.php");
+session_start();
 
 $id = $_GET['id']; // Récupération de paramètres de type $_GET
 
@@ -14,6 +15,7 @@ $nombreReponses = count($enregistrements);
 $donnees['titre_page'] =  $enregistrements[0]['titre'];
 
 include "debut-page.inc.php";
+
 ?>
 
 
@@ -48,41 +50,14 @@ include "debut-page.inc.php";
                 <h5 class="age"> AGE : <?php echo $enregistrements[0]['tranche_age'] ?></h5>
             </div>
             <div class="col">
-                <h5 class="duree">   <h5 class="duree">
-                  DUREE :
-                  <?php
-                  function transforme($duree)
-                  {
-                      if ($duree>=60)
-                      {
-                          // Si c'est le cas on commence nos calculs en incluant les jours
-
-                          // on divise le nombre de seconde par 60
-                          // puis on utilise la fonction floor() pour arrondir au plus petit
-                          $heure = floor($duree/60);
-                          // On extrait le nombre de jours
-                          $reste = $duree%60;
-
-                          $minute = $reste/60;
-                          // puis les minutes
-
-                          // on rassemble les résultats en forme de date
-                          $result = $heure.'h '.$minute.'min ';
-                      }
-                      elseif ($duree < 60)
-                      {
-                          // on refait la même opération sans calculer les jours
-                          $minute = floor($duree/60);
-
-                          $result = $minute.'min';
-                      }
-                  } ?>
+                <h5 class="duree">
+                  DUREE : <?php echo transforme($enregistrements[0]['duree']); ?>
                 </h5>
             </div>
           </div>
           <div class="row">
-              <?php
 
+              <?php
               if (file_exists("images/activites/".$enregistrements[0]['id'].".jpg"))
                 {?>
                   <div class="col" id ="image-activite">
@@ -105,77 +80,99 @@ include "debut-page.inc.php";
                 </div>
                 <?php
               } ?>
-              
+
             <div class="row">
               <div class="col">
                 <h5 class="deroulement"> Déroulement de l'activité : </h5>
                 <?php echo $enregistrements[0]['deroulement']?>
               </div>
             </div>
-            <div class="row">
-              <div class="col">
-                <div class="formulaire_question">
-                <h6 id="gras">Les résultats de vos bouts de chou:</h6>
-                <form action="ajouter-photo.php" enctype="multipart/form-data" method="post">
-                    <div class="form-floating mb-3">
-                      <input type="text" class="form-control" placeholder="Votre pseudo" required="required" id="pseudo" name="pseudo">
-                      <label for="pseudo">Votre pseudo</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                      <input type="hidden" name="MAX_FILE_SIZE" value="3000000" required="required" />
-                      <input type="file" name="fichier" /><br />
-                    </div>
-                    <div class="col-auto">
-                    <button type="submit" class="btn btn-primary rounded-pill">Envoyer</button>
+
+            <!-- Faire afficher toutes les images déposées par les membres -->
+              <h5>Les résultats de vos bouts de chou :</h5>
+
+            <?php if(isset($_SESSION['id_projet_membre']))
+            {?>
+                <div class="row">
+                  <div class="col">
+                    <div class="formulaire_question">
+                    <form action="ajouter-photo.php" enctype="multipart/form-data" method="post">
+                        <div class="form-floating mb-3">
+                          <input type="hidden" name="MAX_FILE_SIZE" value="3000000" required="required" />
+                          <input type="file" name="fichier" /><br />
+                        </div>
+                        <div class="col-auto">
+                        <button type="submit" class="btn btn-primary rounded-pill">Envoyer</button>
+                        </div>
+                      </div>
+                    </form>
                     </div>
                   </div>
-                </form>
-                </div>
-              </div>
+              <?php
+            } ?>
             </div>
+
+
             <div class="row">
               <div class="col">
-                <h6> Les commentaires des internautes:</h6>
+                <h5>Commentaires</h5>
                 <?php
                 // exécuter une requete MySQL
-                $requete = "SELECT projet_commentaire.titre, projet_commentaire.texte, projet_commentaire.date FROM projet_commentaire WHERE projet_commentaire.id_membre=projet_membre.id AND projet_commentaire.id_fiche=projet_fiche.id AND valide=?;";
+                $requete = "SELECT projet_commentaire.*,pseudo FROM projet_commentaire, projet_membre WHERE projet_commentaire.id_membre=projet_membre.id AND valide=? AND id_fiche = ?;";
                 $reponse = $pdo->prepare($requete);
-                $reponse->execute(array(1));
+                $reponse->execute(array(1,$id));
                 // récupérer tous les enregistrements dans un tableau
                 $enregistrements = $reponse->fetchAll();
                 // connaitre le nombre d'enregistrements
                 $nombreReponses = count($enregistrements);
                 // parcourir le tableau des enregistrements
+                if ($nombreReponses==0)
+                {
+                  echo "<p>Soyez la première personne à écrire un commentaire !</p>";
+                }
+                else
+                {
                 for ($i=0; $i<count($enregistrements); $i++)
                 {
                 ?>
-                      <table>
-                        <tr>
-                          <th>Nom</th>
-                          <th>Commentaire</th>
-                          <th>Date</th>
-                        </tr>
-                        <tr>
-                          <th> <?php echo $enregistrements[$i]['titre'];?> </th>
-                          <th> <?php echo $enregistrements[$i]['texte'];?> </th>
-                          <th> <?php echo $enregistrements[$i]['date'];?> </th>
-                        </tr>
+                      <table class="table" id="table-com">
+                        <thead>
+                          <tr>
+                            <th>Pseudo</th>
+                            <th>Titre</th>
+                            <th>Commentaire</th>
+                            <th>Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><?php echo $enregistrements[$i]['pseudo'];?></td>
+                            <td> <?php echo $enregistrements[$i]['titre'];?> </td>
+                            <td> <?php echo $enregistrements[$i]['texte'];?> </td>
+                            <td> <?php echo $enregistrements[$i]['date'];?> </td>
+                          </tr>
+                        </tbody>
                       </table>
                   <?php
                 } ?>
               </div>
             </div>
+          <?php
+          } ?>
+
+            <?php if(isset($_SESSION['id_projet_membre']))
+            {?>
             <div class="row">
               <div class="col">
                 <div class="formulaire_question">
-                <h6 id="gras">Voici le formulaire pour laisser votre commentaire</h6>
+                <h6 id="gras">Alors? Qu'est-ce que vous en avez pensé ? </h6>
                 <form action="ajouter-commentaire-activité.php" method="post">
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control" placeholder="Votre pseudo" required="required" id="pseudo" name="pseudo">
-                      <label for="pseudo">Votre pseudo</label>
+                      <input type="text" class="form-control" placeholder="Titre" required="required" id="titre" name="titre">
+                      <label for="titre">Titre</label>
                     </div>
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control" id="commentaire" placeholder="Votre commentaire" required="required" name="commentaire">
+                      <textarea class="form-control" placeholder="Votre commentaire" id="commentaire" required="required" name="commentaire"></textarea>
                       <label for="commentaire">Votre commentaire</label>
                     </div>
                     <div class="col-auto">
@@ -186,6 +183,9 @@ include "debut-page.inc.php";
                 </form>
               </div>
             </div>
+          <?php } else {
+            echo "<p>Créez un compte pour laisser un commentaire : <a href=\"inscription-formulaire.php\">S'inscrire</a></p>";
+          }?>
           </div>
         </div>
 
