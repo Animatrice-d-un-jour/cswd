@@ -48,7 +48,36 @@ include "debut-page.inc.php";
                 <h5 class="age"> AGE : <?php echo $enregistrements[0]['tranche_age'] ?></h5>
             </div>
             <div class="col">
-                <h5 class="duree"> DUREE : <?php echo $enregistrements[0]['duree'] ?></h5>
+                <h5 class="duree">   <h5 class="duree">
+                  DUREE :
+                  <?php
+                  function transforme($duree)
+                  {
+                      if ($duree>=60)
+                      {
+                          // Si c'est le cas on commence nos calculs en incluant les jours
+
+                          // on divise le nombre de seconde par 60
+                          // puis on utilise la fonction floor() pour arrondir au plus petit
+                          $heure = floor($duree/60);
+                          // On extrait le nombre de jours
+                          $reste = $duree%60;
+
+                          $minute = $reste/60;
+                          // puis les minutes
+
+                          // on rassemble les résultats en forme de date
+                          $result = $heure.'h '.$minute.'min ';
+                      }
+                      elseif ($duree < 60)
+                      {
+                          // on refait la même opération sans calculer les jours
+                          $minute = floor($duree/60);
+
+                          $result = $minute.'min';
+                      }
+                  } ?>
+                </h5>
             </div>
           </div>
           <div class="row">
