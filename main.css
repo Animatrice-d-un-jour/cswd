@@ -480,6 +480,43 @@ button.main1{
 {
   display: none !important;
 }
+
+.fav-tit
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.coeur
+{
+  border:none;
+  background-color: white;
+  position: relative;
+  top :10px;
+  left :10px;
+}
+#heart1, #heart2
+{
+  top:35px;
+}
+#heart1
+{
+  color: grey;
+}
+#heart1:hover, #heart1:active
+{
+  color:#FA6E59;
+}
+#fafa
+{
+position: relative;
+top :10px;
+left :10px;
+}
+
+
 @media (max-width: 426px)
 {
   .stick
