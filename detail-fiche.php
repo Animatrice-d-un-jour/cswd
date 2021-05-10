@@ -79,7 +79,33 @@ include "debut-page.inc.php";
             <div class="row">
               <div class="col">
                 <h6> Les commentaires des internautes:</h6>
-                //inclure les commentaires!
+                <?php
+                // exécuter une requete MySQL
+                $requete = "SELECT projet_commentaire.titre, projet_commentaire.texte, projet_commentaire.date FROM projet_commentaire WHERE projet_commentaire.id_membre=projet_membre.id AND projet_commentaire.id_fiche=projet_fiche.id AND valide=1;";
+                $reponse = $pdo->prepare($requete);
+                $reponse->execute();
+                // récupérer tous les enregistrements dans un tableau
+                $enregistrements = $reponse->fetchAll();
+                // connaitre le nombre d'enregistrements
+                $nombreReponses = count($enregistrements);
+                // parcourir le tableau des enregistrements
+                for ($i=0; $i<count($enregistrements); $i++)
+                {
+                ?>
+                      <table>
+                        <tr>
+                          <th>Nom</th>
+                          <th>Commentaire</th>
+                          <th>Date</th>
+                        </tr>
+                        <tr>
+                          <th> <?php echo $enregistrements[$i]['titre'];?> </th>
+                          <th> <?php echo $enregistrements[$i]['texte'];?> </th>
+                          <th> <?php echo $enregistrements[$i]['date'];?> </th>
+                        </tr>
+                      </table>
+                  <?php
+                } ?>
               </div>
             </div>
             <div class="row">
