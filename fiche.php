@@ -105,7 +105,7 @@ include "debut-page.inc.php";
           <h5 class="card-title"><?php echo $enregistrements[$i]['titre'];?></h5>
           <p class="card-text">
             AGE : <?php echo $enregistrements[$i]['tranche_age'] ?> <br>
-            DUREE : <?php echo $enregistrements[$i]['duree'] ?><br>
+            DUREE : <?php echo transforme($enregistrements[$i]['duree']); ?><br>
             THEME : <?php echo $enregistrements[$i]['nom'] ?><br>
           </p>
         </div>
@@ -159,7 +159,7 @@ include "debut-page.inc.php";
               <h5 class="card-title"><?php echo $enregistrements[$i]['titre']." (@". $enregistrements[$i]['pseudo'].")";?></h5>
               <p class="card-text">
                 AGE : <?php echo $enregistrements[$i]['tranche_age'] ?> <br>
-                DUREE : <?php echo $enregistrements[$i]['duree'] ?><br>
+                DUREE : <?php echo transforme($enregistrements[$i]['duree']); ?><br>
                 THEME : <?php echo $enregistrements[$i]['nom'] ?><br>
               </p>
 
