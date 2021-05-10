@@ -402,6 +402,7 @@ button.main1{
 {
   text-align: center;
   color: #FA6E59;
+  margin-bottom: 30px;
 }
 
 .theme
@@ -428,6 +429,16 @@ button.main1{
   justify-content: center;
   align-items: center;
   color: #44635E;
+  padding-top: 30px;
+}
+
+.materiel2
+{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  color: #44635E;
+  padding-top: 30px;
 }
 
 .deroulement
@@ -436,6 +447,13 @@ button.main1{
   justify-content: left;
   align-items: center;
   color: #df6ae8;
+  padding-top: 30px;
+}
+#image-activite
+{
+  padding-left: 60px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .picto
 {
