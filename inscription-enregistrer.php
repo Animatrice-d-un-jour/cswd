@@ -31,17 +31,11 @@ if (!empty($_POST['pseudo']) && !empty($_POST['motdepasse']) &&
         <meta charset="utf-8" />
     </head>
     <body class="body">
-    <?php
-    if ($reussi == true)
-    {
-    header("location:connexion.php");
-    }
-    else
-    {
-    ?>
-        <p>Veuillez svp renseigner toutes les informations.</p>
-    <?php
-    }
-    ?>
+      <?php
+      if ($reussi == true)
+      {
+      header("location:connexion.php");
+      }
+      ?>
     </body>
 </html>
