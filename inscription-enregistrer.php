@@ -19,7 +19,7 @@ if (!empty($_POST['pseudo']) && !empty($_POST['motdepasse']) &&
     // vous pouvez aussi tester ici si le mot de passe est sécurisé
     // (donc contient plus que 12 caractères, et des majuscules, miniscules, caractères spéciaux)
 
-    $requete="INSERT INTO projet_membre (pseudo,prenom,nom,motdepasse,dateinscrit,id_categorie) VALUES (?, ?, ?, ?, NOW(), ?)";
+    $requete="INSERT INTO projet_membre (pseudo,prenom,nom,email, motdepasse,dateinscrit,id_categorie) VALUES (?, ?, ?, ?, ?, NOW(), ?)";
     $reponse=$pdo->prepare($requete);
     $reponse->execute(array($pseudo, $prenom, $nom,$email,$motdepasse_crypte, $id_categorie));
     $reussi = true;
