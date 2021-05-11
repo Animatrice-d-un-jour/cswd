@@ -12,6 +12,7 @@ require_once("connexion_base.php");
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.ico" type="images/x-icon" />
     <title>Connexion</title>
 
   </head>
