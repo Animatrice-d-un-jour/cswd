@@ -36,7 +36,7 @@
           <ul class="sans_puce">
             <li><a class="plan_site gras">A VOUS DE JOUER !</a></li>
             <li><a class="plan_site" href="faq.php">FAQ</a></li>
-            <li><a class="plan_site" href="#">Vos idées</a></li>
+            <li><a class="plan_site" href="idee.php">Boîte à idées</a></li>
           </ul>
         </div>
       </div>
