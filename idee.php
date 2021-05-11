@@ -57,7 +57,7 @@ include "debut-page.inc.php";
        <div class="col-md">
     <div class="form-floating">
       <select class="form-select" id="type" aria-label="Floating label select example" required="required" name="type">
-        <option selected>Sélectionner</option>
+        <option selected >Sélectionner</option>
         <option value="1">Jeu</option>
         <option value="2">Activité</option>
       </select>
