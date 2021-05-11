@@ -12,12 +12,11 @@ require_once("connexion_base.php");
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <link rel="shortcut icon" href="images/favicon.ico" type="images/x-icon" />
     <title>Inscription</title>
   </head>
   <body class="body">
-    <div class="image">
       <div class="main2">
+        <a href="index.php"><img src="images/logo_5.png" height="40" alt="logo" id="mini2"></a>
         <p class="sign2" align="center">S'inscrire</p>
         <form action="inscription-enregistrer.php" method="post" class="form1" novalidate>
           <input class="pseud " type="text" align="center" name="pseudo" placeholder="Nom d'utilisateur">
@@ -49,23 +48,21 @@ require_once("connexion_base.php");
             ?>
             </select>
 
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" name="consentement" value="false" required/>
-              <label class="form-check-label" align="center" for="consentement"/>
-                Accepter les conditions d'utilisations.
-              </label>
-              <div class="consentement">
-                Vous devez accepter avant de continuer.
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="consentement" value="false" required/>
+                <label class="form-check-label" align="center" for="consentement"/>
+                  Accepter les conditions d'utilisations.
+                </label>
+                <div class="consentement">
+                  Vous devez accepter avant de continuer.
+                </div>
               </div>
             </div>
-          </div>
           </div>
           <input class="submit" type="submit" align="center" value="Inscription"/>
           <p class="new" align="center"><a class="co" href="connexion.php">Se connecter</p>
         </form>
-
       </div>
-    </div>
   </body>
 </html>
