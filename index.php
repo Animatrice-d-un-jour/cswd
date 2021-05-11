@@ -54,21 +54,20 @@ include "debut-page.inc.php";
     <!-- boucle -->
     <?php
     for ($i=0; $i<3; $i++)
-    {
-    ?>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title"><?php echo $enregistrements[$i]['titre'];?></h5>
-        <p class="card-text">
-          AGE : <?php echo $enregistrements[$i]['tranche_age'] ?> <br>
-          DUREE : <?php echo $enregistrements[$i]['duree'] ?><br>
-          THEME : <?php echo $enregistrements[$i]['nom'] ?><br>
-        </p>
-      </div>
-      <div>
-        <a href="detail-fiche.php?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill espace">Consulter</a>
-      </div>
-      </div>
+    {?>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $enregistrements[$i]['titre'];?></h5>
+          <p class="card-text">
+            AGE : <?php echo $enregistrements[$i]['tranche_age'] ?> <br>
+            DUREE : <?php echo transforme($enregistrements[$i]['duree']); ?><br>
+            THEME : <?php echo $enregistrements[$i]['nom'] ?><br>
+          </p>
+        </div>
+        <div>
+          <a href="detail-fiche.php?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill espace">Consulter</a>
+        </div>
+        </div>
       <?php
      } ?>
     </div>
@@ -77,30 +76,29 @@ include "debut-page.inc.php";
   <h2>DERNIERS POSTS</h2>
   <!--- Les dernières images postées par les utilisateurs/ à afficher depuis la BDD  -->
   <div class="photo">
-
-    <div class="dernier_post">
-      <a href="#">
-        <img src="images/post1.jpg" height="100" class="rounded" alt="image1">
-      </a>
-    </div>
-
-    <div class="dernier_post">
-      <a href="#">
-        <img src="images/post2.png" height="100" class="rounded" alt="image2">
-      </a>
-    </div>
-
-    <div class="dernier_post">
-      <a href="#">
-        <img src="images/post3.jpeg" height="100" class="rounded" alt="image3">
-      </a>
-    </div>
-
-    <div class="dernier_post">
-      <a href="#">
-        <img src="images/post4.jpg" height="100" class="rounded" alt="image4">
-      </a>
-    </div>
+    <?php
+    $requete = "SELECT * FROM projet_photo WHERE valide = ? ORDER BY id DESC;";
+    $reponse = $pdo->prepare($requete);
+    $reponse->execute(array(1));
+    // récupérer tous les enregistrements dans un tableau
+    $photos = $reponse->fetchAll();
+    // connaitre le nombre d'enregistrements
+    $nombreReponses = count($photos);
+    // parcourir le tableau des enregistrements
+    for ($i=0; $i<4; $i++)
+    {
+      if (file_exists("images/images-ajoutées/activité-".$photos[$i]['id'].".jpg"))
+        { $fiche = $photos[$i]['id_fiche']
+          ?>
+          <div class="dernier_post">
+            <a href="detail-fiche.php?id=<?php echo $fiche ?>">
+               <img src="images/images-ajoutées/activité-<?php echo $photos[$i]['id']; ?>.jpg" height="100" class="rounded" alt="activité-<?php echo $photos[$i]['id']; ?>">
+            </a>
+          </div>
+        <?php
+        }
+      }
+     ?>
   </div>
 
   <h2>QUI SOMMES-NOUS? </h2>
@@ -120,9 +118,13 @@ include "debut-page.inc.php";
   </div>
 
   <p class="description">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
+    Nous sommes Lucie, Catlyn et Chloé. Trois étudiantes en deuxième année de fac et accessoirement trois animatrices d'un jour dont certaines étant plus expertes que d'autres :)
+    <br>
+    L'idée nous est venue de créer ce site afin d'occuper vos petits bouts de chou. Effectivement, il n'est pas toujours évident de trouver des idées pour occuper ces petits êtres plein d'énergie. Nous espérons via ce site internet collaboratif pouvoir partager entre parents, animateurs ou baby-sitters des activités et jeux amusants et créatifs qui plairont tant aux petits qu'aux grands.
+
   </p>
 
 </main>
 
 <?php include "fin-page.inc.php"; ?>
+
