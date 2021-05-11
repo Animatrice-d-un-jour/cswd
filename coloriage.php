@@ -31,7 +31,7 @@ include "debut-page.inc.php";
     {
     ?>
     <div class="card" >
-      <img src="coloriages/mini_<?php echo $enregistrements[$i]['id'] ?>.jpg" class="card-img-top" alt="coloriage de <?php echo $enregistrements[$i]['titre'] ?>" height="300px">
+      <img src="coloriages/mini_<?php echo $enregistrements[$i]['id'] ?>.jpg" class="card-img-top" alt="coloriage de <?php echo $enregistrements[$i]['titre'] ?>" height="300">
       <div class="card-body">
         <h5 class="card-title"><?php echo $enregistrements[$i]['titre'] ?></h5>
         <a href="detail-coloriage.php?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill">Voir</a>
@@ -41,13 +41,6 @@ include "debut-page.inc.php";
      } ?>
     </div>
 
-  </div>
 </main>
-<!--
-<a href='https://fr.freepik.com/vecteurs/nourriture'>Nourriture vecteur créé par bamdewanto - fr.freepik.com</a>
-<a href='https://fr.freepik.com/vecteurs/enfants'>Enfants vecteur créé par freepik - fr.freepik.com</a>
-<a href='https://fr.freepik.com/vecteurs/fond'>Fond vecteur créé par bimbimkha - fr.freepik.com</a>
--->
-
 
 <?php include "fin-page.inc.php"; ?>
