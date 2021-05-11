@@ -236,20 +236,21 @@ font-size: 50px;
 }
 
 #mini2{
-padding-left: 10px;
-padding-bottom: 60px;
+padding-left: 15px;
+padding-bottom: 25px;
 display: inline-block;
 vertical-align: middle;
 }
 
 .sign2 {
-line-height:  10px;
+line-height: 10px;
 display: inline-block;
 padding-top: 10px;
-margin-left: 15px;
+margin-left: 55px;
 color: #FA6E59;
 font-weight: bold;
 font-size: 40px;
+margin-bottom: 5px;
 }
 
 .pseud {
