@@ -425,8 +425,12 @@ button.main1{
 .title
 {
   text-align: center;
-  color: #FA6E59;
   margin-bottom: 30px;
+}
+.title2
+{
+  color: #FA6E59;
+
 }
 
 .theme
@@ -518,10 +522,12 @@ button.main1{
   top :10px;
   left :10px;
 }
-#heart1, #heart2
+/*nouveau*/
+#heart2
 {
-  top:35px;
+  color: #FA6E59;
 }
+
 #heart1
 {
   color: grey;
@@ -552,6 +558,22 @@ thead
 {
   background-color: #ADD8E6;
   border-radius: 10px;
+}
+#photo_form, #fofot
+{
+  margin-top: 30px;
+}
+#comcom
+{
+  margin-bottom: 30px;
+}
+#photo_form
+{
+  margin-bottom: 20px;
+}
+.gris
+{
+  color: #4E9BD9;
 }
 
 
