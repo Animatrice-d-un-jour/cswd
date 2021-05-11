@@ -53,7 +53,7 @@ include "debut-page.inc.php";
     <?php if(isset($_SESSION['id_projet_membre']))
     { $id_membre = $_SESSION['id_projet_membre'];
       ?>
-        <form class="d-flex" action="" method="post">
+        <form class="d-flex" action="#" method="post">
           <input type="hidden" name="fiche" value="<?php echo $id ?>">
           <input type="hidden" name="membre" value="<?php echo $id_membre ?>">
           <button type="submit" class = "coeur"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16" id="heart1">
@@ -103,7 +103,7 @@ include "debut-page.inc.php";
  </div>
 
 
-          <div class="row">
+          <div class="row" id="olive">
             <div class="col">
                 <h5 class="theme"> THEME : <?php echo $enregistrements[0]['nom'] ?></h5>
             </div>
@@ -116,13 +116,14 @@ include "debut-page.inc.php";
                 </h5>
             </div>
           </div>
+
           <div class="row">
 
               <?php
               if (file_exists("images/activites/".$enregistrements[0]['id'].".jpg"))
                 {?>
                   <div class="col" id ="image-activite">
-                  <img src="images/activites/<?php echo $enregistrements[0]['id'] ?>.jpg" class="rounded-pill" alt="activité-<?php echo $enregistrements[0]['id'] ?>" width="250px">
+                  <img src="images/activites/<?php echo $enregistrements[0]['id'] ?>.jpg" class="rounded-pill" alt="activité-<?php echo $enregistrements[0]['id'] ?>" width="250">
                   </div>
 
                   <div class="col">
@@ -141,6 +142,7 @@ include "debut-page.inc.php";
                 </div>
                 <?php
               } ?>
+              </div>
 
             <div class="row">
               <div class="col">
@@ -171,7 +173,7 @@ include "debut-page.inc.php";
                    if (file_exists("images/images-ajoutées/activité-".$photos[$i]['id'].".jpg"))
                      {?>
                        <div class="dernier_post">
-                           <img src="images/images-ajoutées/activité-<?php echo $photos[$i]['id']; ?>.jpg" height="100px" class="rounded" alt="activité-<?php echo $photos[$i]['id']; ?>">
+                           <img src="images/images-ajoutées/activité-<?php echo $photos[$i]['id']; ?>.jpg" height="100" class="rounded" alt="activité-<?php echo $photos[$i]['id']; ?>">
                        </div>
                      <?php
                      }
@@ -251,11 +253,10 @@ include "debut-page.inc.php";
                         </tbody>
                       </table>
                   <?php
-                } ?>
-              </div>
-            </div>
-          <?php
+                }
           } ?>
+            </div>
+          </div>
 
             <?php if(isset($_SESSION['id_projet_membre']))
             {?>
@@ -278,13 +279,11 @@ include "debut-page.inc.php";
                   </div>
                 </form>
                 </div>
-                </form>
               </div>
             </div>
           <?php } else {
             echo "<p>Créez un compte pour laisser un commentaire : <a href=\"inscription-formulaire.php\">S'inscrire</a></p>";
           }?>
-          </div>
 
 
         </main>
