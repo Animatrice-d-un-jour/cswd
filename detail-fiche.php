@@ -166,7 +166,7 @@ include "debut-page.inc.php";
               <div class="col">
                 <div class="formulaire_question">
                 <h6 id="gras">Alors? Qu'est-ce que vous en avez pensé ? </h6>
-                <form action="ajouter-commentaire-activité.php" method="post">
+                <form action="ajouter-commentaire-fiche.php" method="post">
                     <div class="form-floating mb-3">
                       <input type="text" class="form-control" placeholder="Titre" required="required" id="titre" name="titre">
                       <label for="titre">Titre</label>
@@ -175,6 +175,7 @@ include "debut-page.inc.php";
                       <textarea class="form-control" placeholder="Votre commentaire" id="commentaire" required="required" name="commentaire"></textarea>
                       <label for="commentaire">Votre commentaire</label>
                     </div>
+                    <input type="hidden" name="fiche" value="<?php echo $id; ?>"
                     <div class="col-auto">
                     <button type="submit" class="btn btn-primary rounded-pill">Envoyer</button>
                   </div>
