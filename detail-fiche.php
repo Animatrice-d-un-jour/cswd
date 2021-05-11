@@ -40,8 +40,13 @@ include "debut-page.inc.php";
   </nav>
 
   <div class="fav-tit">
-    <div >
-      <h1 class= "title"> <?php echo $enregistrements[0]['titre']?> </h1>
+    <div class="title">
+      <h1 class= "title2"> <?php echo $enregistrements[0]['titre']?> </h1>
+      <?php if ($enregistrements[0]['pseudo']!='')
+      {
+        $pseudo = $enregistrements[0]['pseudo'];
+        echo "<h2 class=\"title2\">(@$pseudo)</h2>";
+      }?>
     </div>
     <div>
     <!--début mécanisme formulaire-->
@@ -97,7 +102,7 @@ include "debut-page.inc.php";
    </div>
  </div>
 
-        <div class="container">
+
           <div class="row">
             <div class="col">
                 <h5 class="theme"> THEME : <?php echo $enregistrements[0]['nom'] ?></h5>
@@ -144,10 +149,47 @@ include "debut-page.inc.php";
               </div>
             </div>
 
-            <!-- Faire afficher toutes les images déposées par les membres -->
+            <!-- les images des membres -->
+            <div id="fofot">
+            <h4 class="gris">Les résultats de vos bouts de chou ! </h4>
+            <?php
+            $requete = "SELECT * FROM projet_photo WHERE id_fiche = ?  AND valide = ?;";
+            $reponse = $pdo->prepare($requete);
+            $reponse->execute(array($id,1));
+            // récupérer tous les enregistrements dans un tableau
+            $photos = $reponse->fetchAll();
+            // connaitre le nombre d'enregistrements
+            $nombreReponses = count($photos);
+            // parcourir le tableau des enregistrements
+            if ($nombreReponses > 0)
+            {
+              ?>
+               <div class="photo">
+                 <?php
+                 for ($i=0; $i<count($photos); $i++)
+                 {
+                   if (file_exists("images/images-ajoutées/activité-".$photos[$i]['id'].".jpg"))
+                     {?>
+                       <div class="dernier_post">
+                           <img src="images/images-ajoutées/activité-<?php echo $photos[$i]['id']; ?>.jpg" height="100px" class="rounded" alt="activité-<?php echo $photos[$i]['id']; ?>">
+                       </div>
+                     <?php
+                     }
+                   }?>
+               </div>
+          <?php
+        }
+        else
+        {
+          echo "<p>Il n'y a pas encore de photos. Soyez la première personne à poster le chef d'oeuvre de votre enfant !</p>";
+          if (empty($_SESSION['id_projet_membre']))
+          {
+            echo "<p>Créer un compte : <a href=\"inscription-formulaire.php\">S'inscrire</a></p>";
+          }
+        }?>
+
             <div class="row" id="photo_form">
               <div class="col">
-              <h5>Les résultats de vos bouts de chou ! </h5>
 
             <?php if(isset($_SESSION['id_projet_membre']))
             {?>
@@ -155,7 +197,7 @@ include "debut-page.inc.php";
                     <form action="ajouter-photo.php" enctype="multipart/form-data" method="post">
                       <div class="input-group">
                         <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="fichier">
-                        <input type="hidden" name="MAX_FILE_SIZE" value="3000000" required="required" />
+                        <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
                         <input type="hidden" name="fiche" value="<?php echo $id; ?>">
                         <button class="btn btn-primary" type="submit" id="inputGroupFileAddon04">Envoyer</button>
                       </div>
@@ -168,9 +210,9 @@ include "debut-page.inc.php";
             </div>
 
 
-            <div class="row">
+            <div class="row" id="comcom">
               <div class="col">
-                <h5>Commentaires</h5>
+                <h4 class="gris">Commentaires</h4>
                 <?php
                 // exécuter une requete MySQL
                 $requete = "SELECT projet_commentaire.*,pseudo FROM projet_commentaire, projet_membre WHERE projet_commentaire.id_membre=projet_membre.id AND valide=? AND id_fiche = ?;";
@@ -201,7 +243,7 @@ include "debut-page.inc.php";
                         </thead>
                         <tbody>
                           <tr>
-                            <td><?php echo $enregistrements[$i]['pseudo'];?></td>
+                            <td><?php echo "@".$enregistrements[$i]['pseudo'];?></td>
                             <td> <?php echo $enregistrements[$i]['titre'];?> </td>
                             <td> <?php echo $enregistrements[$i]['texte'];?> </td>
                             <td> <?php echo $enregistrements[$i]['date'];?> </td>
@@ -243,7 +285,7 @@ include "debut-page.inc.php";
             echo "<p>Créez un compte pour laisser un commentaire : <a href=\"inscription-formulaire.php\">S'inscrire</a></p>";
           }?>
           </div>
-        </div>
+
 
         </main>
 
