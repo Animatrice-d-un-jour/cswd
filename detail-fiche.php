@@ -230,30 +230,34 @@ include "debut-page.inc.php";
                   echo "<p>Soyez la première personne à écrire un commentaire !</p>";
                 }
                 else
-                {
+                {?>
+                  <table class="table" id="table-com">
+                    <thead>
+                      <tr>
+                        <th>Pseudo</th>
+                        <th>Titre</th>
+                        <th>Commentaire</th>
+                        <th>Date</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                  <?php
                 for ($i=0; $i<count($enregistrements); $i++)
                 {
                 ?>
-                      <table class="table" id="table-com">
-                        <thead>
-                          <tr>
-                            <th>Pseudo</th>
-                            <th>Titre</th>
-                            <th>Commentaire</th>
-                            <th>Date</th>
-                          </tr>
-                        </thead>
-                        <tbody>
                           <tr>
                             <td><?php echo "@".$enregistrements[$i]['pseudo'];?></td>
                             <td> <?php echo $enregistrements[$i]['titre'];?> </td>
                             <td> <?php echo $enregistrements[$i]['texte'];?> </td>
                             <td> <?php echo $enregistrements[$i]['date'];?> </td>
                           </tr>
-                        </tbody>
-                      </table>
                   <?php
                 }
+              ?>
+            </tbody>
+          </table>
+              <?php
           } ?>
             </div>
           </div>
