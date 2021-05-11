@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("connexion_base.php");
-
+$donnees['titre_page'] = "Favoris";
 
 include "debut-page.inc.php";
 ?>
