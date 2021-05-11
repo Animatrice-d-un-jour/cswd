@@ -20,7 +20,6 @@ include "debut-page.inc.php";
 
 
 <main class="fiches">
-
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
@@ -39,123 +38,172 @@ include "debut-page.inc.php";
     </ol>
   </nav>
 
-    <h1 class= "title"> <?php echo $enregistrements[0]['titre']?> </h1>
+  <div class="fav-tit">
+    <div>
+      <h1 class= "title"> <?php echo $enregistrements[0]['titre']?> </h1>
+    </div>
+    <div>
+      <!--début mécanisme formulaire-->
+        <?php if(isset($_SESSION['id_projet_membre']))
+          { $id_membre = $_SESSION['id_projet_membre'];
+          ?>
+            <form class="d-flex" action="" method="post">
+              <input type="hidden" name="fiche" value="<?php echo $id ?>">
+              <input type="hidden" name="membre" value="<?php echo $id_membre ?>">
+              <button type="submit" class = "coeur"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16" id="heart1">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                </svg>
+              </button>
+            </form>
 
-        <div class="container">
+            <?php
+            //si la personne clique sur le bouton favoris
+            if (isset( $_POST['fiche']) AND isset( $_POST['membre']))
+            {
+              $fiche = $_POST['fiche'];
+              $membre = $_POST['membre'];
+
+              //regarder si l'enregistrement existe déjà
+              $requete = "SELECT * FROM projet_membre_fiche WHERE id_membre=? AND id_fiche = ?;";
+              $reponse = $pdo->prepare($requete);
+              $reponse->execute(array($membre, $fiche));
+              // récupérer tous les enregistrements dans un tableau
+              $favoris = $reponse->fetchAll();
+              // connaitre le nombre d'enregistrements
+              $nombreReponses = count($favoris);
+              // parcourir le tableau des enregistrements
+
+              //si l'enregistrement n'existe pas, c'est à dire si la personne n'a pas encore mis l'activité en favoris
+              if ($nombreReponses==0)
+              {
+                $requete="INSERT INTO projet_membre_fiche (id_membre,id_fiche)
+                VALUES (?, ?)";
+                $reponse=$pdo->prepare($requete);
+                $reponse->execute(array($membre, $fiche));
+              }
+
+            }
+          }
+          else
+          {
+         ?>
+            <a href="inscription-formulaire.php" id="fafa">
+             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16" id="heart2">
+             <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+             </svg>
+            </a>
+           <?php
+          } ?>
+         <!--fin mécanisme formulaire-->
+    </div>
+  </div>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h5 class="theme"> THEME : <?php echo $enregistrements[0]['nom'] ?></h5>
+        </div>
+        <div class="col">
+          <h5 class="age"> AGE : <?php echo $enregistrements[0]['tranche_age'] ?></h5>
+        </div>
+        <div class="col">
+          <h5 class="duree"> DUREE : <?php echo transforme($enregistrements[0]['duree']); ?></h5>
+        </div>
+      </div>
+      <div class="row">
+        <?php
+        if (file_exists("images/activites/".$enregistrements[0]['id'].".jpg"))
+        {?>
+          <div class="col" id ="image-activite">
+            <img src="images/activites/<?php echo $enregistrements[0]['id'] ?>.jpg" class="rounded-pill" alt="activité-<?php echo $enregistrements[0]['id'] ?>" width="250px">
+          </div>
+          <div class="col">
+            <h5 class="materiel"> Vous avez besoin de : </h5>
+            <?php echo $enregistrements[0]['materiel']?>
+          </div>
+        <?php
+        }
+        else
+        {?>
           <div class="row">
             <div class="col">
-                <h5 class="theme"> THEME : <?php echo $enregistrements[0]['nom'] ?></h5>
-            </div>
-            <div class="col">
-                <h5 class="age"> AGE : <?php echo $enregistrements[0]['tranche_age'] ?></h5>
-            </div>
-            <div class="col">
-                <h5 class="duree">
-                  DUREE : <?php echo transforme($enregistrements[0]['duree']); ?>
-                </h5>
+              <h5 class="materiel2"> Vous avez besoin de : </h5>
+              <?php echo $enregistrements[0]['materiel']?>
             </div>
           </div>
-          <div class="row">
-
-              <?php
-              if (file_exists("images/activites/".$enregistrements[0]['id'].".jpg"))
-                {?>
-                  <div class="col" id ="image-activite">
-                  <img src="images/activites/<?php echo $enregistrements[0]['id'] ?>.jpg" class="rounded-pill" alt="activité-<?php echo $enregistrements[0]['id'] ?>" width="250px">
-                  </div>
-
-                  <div class="col">
-                    <h5 class="materiel"> Vous avez besoin de : </h5>
-                      <?php echo $enregistrements[0]['materiel']?>
-                  </div>
-                <?php
-              }
-              else
-              {?>
-                <div class="row">
-                  <div class="col">
-                    <h5 class="materiel2"> Vous avez besoin de : </h5>
-                      <?php echo $enregistrements[0]['materiel']?>
-                  </div>
-                </div>
-                <?php
-              } ?>
-
+        <?php
+        } ?>
+        <div class="row">
+          <div class="col">
+            <h5 class="deroulement"> Déroulement de l'activité : </h5>
+            <?php echo $enregistrements[0]['deroulement']?>
+          </div>
+        </div>
+        <!-- Faire afficher toutes les images déposées par les membres -->
+        <h5>Les résultats de vos bouts de chou :</h5>
+        <?php if(isset($_SESSION['id_projet_membre']))
+          {?>
             <div class="row">
               <div class="col">
-                <h5 class="deroulement"> Déroulement de l'activité : </h5>
-                <?php echo $enregistrements[0]['deroulement']?>
-              </div>
-            </div>
-
-            <!-- Faire afficher toutes les images déposées par les membres -->
-              <h5>Les résultats de vos bouts de chou :</h5>
-
-            <?php if(isset($_SESSION['id_projet_membre']))
-            {?>
-                <div class="row">
-                  <div class="col">
-                    <div class="formulaire_question">
-                    <form action="ajouter-photo.php" enctype="multipart/form-data" method="post">
-                        <div class="form-floating mb-3">
-                          <input type="hidden" name="MAX_FILE_SIZE" value="3000000" required="required" />
-                          <input type="file" name="fichier" /><br />
-                        </div>
-                        <div class="col-auto">
-                        <button type="submit" class="btn btn-primary rounded-pill">Envoyer</button>
-                        </div>
-                      </div>
-                    </form>
+                <div class="formulaire_question">
+                  <form action="ajouter-photo.php" enctype="multipart/form-data" method="post">
+                    <div class="form-floating mb-3">
+                      <input type="hidden" name="MAX_FILE_SIZE" value="3000000" required="required" />
+                      <input type="file" name="fichier" /><br />
                     </div>
-                  </div>
-              <?php
-            } ?>
-            </div>
-
-
-            <div class="row">
-              <div class="col">
-                <h5>Commentaires</h5>
-                <?php
-                // exécuter une requete MySQL
-                $requete = "SELECT projet_commentaire.*,pseudo FROM projet_commentaire, projet_membre WHERE projet_commentaire.id_membre=projet_membre.id AND valide=? AND id_fiche = ?;";
-                $reponse = $pdo->prepare($requete);
-                $reponse->execute(array(1,$id));
-                // récupérer tous les enregistrements dans un tableau
-                $enregistrements = $reponse->fetchAll();
-                // connaitre le nombre d'enregistrements
-                $nombreReponses = count($enregistrements);
-                // parcourir le tableau des enregistrements
-                if ($nombreReponses==0)
-                {
-                  echo "<p>Soyez la première personne à écrire un commentaire !</p>";
-                }
-                else
-                {
-                for ($i=0; $i<count($enregistrements); $i++)
-                {
-                ?>
-                      <table class="table" id="table-com">
-                        <thead>
-                          <tr>
-                            <th>Pseudo</th>
-                            <th>Titre</th>
-                            <th>Commentaire</th>
-                            <th>Date</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td><?php echo $enregistrements[$i]['pseudo'];?></td>
-                            <td> <?php echo $enregistrements[$i]['titre'];?> </td>
-                            <td> <?php echo $enregistrements[$i]['texte'];?> </td>
-                            <td> <?php echo $enregistrements[$i]['date'];?> </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                  <?php
-                } ?>
+                    <div class="col-auto">
+                      <button type="submit" class="btn btn-primary rounded-pill">Envoyer</button>
+                    </div>
+                  </form>
+                </div>
               </div>
+            </div>
+          <?php
+          } ?>
+      </div>
+      <div class="row">
+        <div class="col">
+            <h5>Commentaires</h5>
+            <?php
+            // exécuter une requete MySQL
+            $requete = "SELECT projet_commentaire.*,pseudo FROM projet_commentaire, projet_membre WHERE projet_commentaire.id_membre=projet_membre.id AND valide=? AND id_fiche = ?;";
+            $reponse = $pdo->prepare($requete);
+            $reponse->execute(array(1,$id));
+            // récupérer tous les enregistrements dans un tableau
+            $enregistrements = $reponse->fetchAll();
+            // connaitre le nombre d'enregistrements
+            $nombreReponses = count($enregistrements);
+            // parcourir le tableau des enregistrements
+            if ($nombreReponses==0)
+              {
+                echo "<p>Soyez la première personne à écrire un commentaire !</p>";
+              }
+            else
+              {
+                for ($i=0; $i<count($enregistrements); $i++)
+              }
+            ?>
+            <table class="table" id="table-com">
+              <thead>
+                <tr>
+                  <th>Pseudo</th>
+                  <th>Titre</th>
+                  <th>Commentaire</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><?php echo $enregistrements[$i]['pseudo'];?></td>
+                  <td> <?php echo $enregistrements[$i]['titre'];?> </td>
+                  <td> <?php echo $enregistrements[$i]['texte'];?> </td>
+                  <td> <?php echo $enregistrements[$i]['date'];?> </td>
+                </tr>
+              </tbody>
+            </table>
+            <?php
+          } ?>
+
+          </div>
             </div>
           <?php
           } ?>
