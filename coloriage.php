@@ -30,16 +30,16 @@ include "debut-page.inc.php";
     for ($i=0; $i<count($enregistrements); $i++)
     {
     ?>
-    <div class="card" >
+    <div class="card">
       <img src="coloriages/mini_<?php echo $enregistrements[$i]['id'] ?>.jpg" class="card-img-top" alt="coloriage de <?php echo $enregistrements[$i]['titre'] ?>" height="300">
       <div class="card-body">
         <h5 class="card-title"><?php echo $enregistrements[$i]['titre'] ?></h5>
         <a href="detail-coloriage.php?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill">Voir</a>
       </div>
-     </div>
+    </div>
     <?php
      } ?>
-    </div>
+  </div>
 
 </main>
 
