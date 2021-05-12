@@ -47,47 +47,47 @@ include "debut-page.inc.php";
     <p id="gras">Votre question n'est pas dans cette FAQ ?</p>
     <p>Dans ce cas, il vous suffit de remplir le formulaire ci-dessous et nous répondrons à votre question dans les plus brefs délais
     (veuillez remplir tous les champs).</p>
-  <form action="ajouter-question.php" method="post">
+    <form action="ajouter-question.php" method="post">
 
-    <?php if(isset($_SESSION['id_projet_membre']))
-    {
-      $id_membre = $_SESSION['id_projet_membre'];
-      $requete = "SELECT * FROM projet_membre WHERE projet_membre.id = ?;";
-      $reponse = $pdo->prepare($requete);
-      $reponse->execute(array($id_membre));
-      // récupérer tous les enregistrements dans un tableau
-      $membre = $reponse->fetchAll();
-      // connaitre le nombre d'enregistrements
-      $nombreReponses = count($membre);
-      // parcourir le tableau des enregistrements
+      <?php if(isset($_SESSION['id_projet_membre']))
+      {
+        $id_membre = $_SESSION['id_projet_membre'];
+        $requete = "SELECT * FROM projet_membre WHERE projet_membre.id = ?;";
+        $reponse = $pdo->prepare($requete);
+        $reponse->execute(array($id_membre));
+        // récupérer tous les enregistrements dans un tableau
+        $membre = $reponse->fetchAll();
+        // connaitre le nombre d'enregistrements
+        $nombreReponses = count($membre);
+        // parcourir le tableau des enregistrements
 
-      ?>
-      <input type="hidden" name="pseudo" value="<?php echo $membre[0]['pseudo']; ?>">
-      <input type="hidden" name="email" value="<?php echo $membre[0]['email']; ?>">
-    <?php
-    }
-    else
-    { ?>
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" placeholder="Votre pseudo" required="required" id="pseudo" name="pseudo">
-        <label for="pseudo">Votre pseudo</label>
-      </div>
+        ?>
+        <input type="hidden" name="pseudo" value="<?php echo $membre[0]['pseudo']; ?>">
+        <input type="hidden" name="email" value="<?php echo $membre[0]['email']; ?>">
+      <?php
+      }
+      else
+      { ?>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" placeholder="Votre pseudo" required="required" id="pseudo" name="pseudo">
+          <label for="pseudo">Votre pseudo</label>
+        </div>
 
-      <div class="form-floating mb-3">
-        <input type="email" class="form-control" placeholder="Votre adresse mail" required="required" id="email" name="email">
-        <label for="email">Votre adresse mail</label>
-      </div>
-    <?php
-     } ?>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" placeholder="Votre adresse mail" required="required" id="email" name="email">
+          <label for="email">Votre adresse mail</label>
+        </div>
+      <?php
+       } ?>
 
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="question" placeholder="Votre question" required="required" name="question">
-        <label for="question">Votre question</label>
-      </div>
-      <div class="col-auto">
-      <button type="submit" class="btn btn-primary rounded-pill">Envoyer</button>
-    </div>
-  </form>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="question" placeholder="Votre question" required="required" name="question">
+          <label for="question">Votre question</label>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary rounded-pill">Envoyer</button>
+        </div>
+    </form>
   </div>
 
 
