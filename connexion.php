@@ -21,9 +21,10 @@ require_once("connexion_base.php");
       {
         ?>
         <div class="main1">
+          <a href="index.php"><img src="images/logo_5.png" height="40" alt="logo" id="mini2"></a>
           <form class="form1"/>
-            <button type="button" align="center" class="submit2"><a href="favoris.php" >Mes favoris</a></button>
-            <button type="button"  align="center" class="submit2"><a href="deconnexion.php">Se déconnecter</a></button>
+            <button type="button" align="center" class="submit2"><a href="favoris.php" class="neutre">Mes favoris</a></button>
+            <button type="button"  align="center" class="submit2"><a href="deconnexion.php" class="neutre">Se déconnecter</a></button>
           </form>
         </div>
         <?php
