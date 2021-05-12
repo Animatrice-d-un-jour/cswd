@@ -12,7 +12,6 @@ require_once("connexion_base.php");
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-    <link rel="shortcut icon" href="images/favicon.ico" type="images/x-icon" />
     <title>Inscription</title>
   </head>
   <body class="body">
