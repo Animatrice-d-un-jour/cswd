@@ -88,7 +88,7 @@ include "debut-page.inc.php";
       }
       else
         {
-          echo "<p>Veuillez tout d'abord vous créez un compte pour ajouter des activités et jeux en favoris.</p>";
+          echo "<p>Veuillez tout d'abord vous créer un compte pour ajouter des activités et jeux en favoris.</p>";
           echo"<a href=\"inscription-formulaire.php\">S'inscrire</a>";
         }
       ?>
