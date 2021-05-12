@@ -67,10 +67,10 @@ include "debut-page.inc.php";
         <div>
           <a href="detail-fiche.php?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill espace">Consulter</a>
         </div>
-        </div>
+      </div>
       <?php
-     } ?>
-    </div>
+    } ?>
+  </div>
 
 
   <h2>DERNIERS POSTS</h2>
@@ -88,7 +88,7 @@ include "debut-page.inc.php";
     for ($i=0; $i<4; $i++)
     {
       if (file_exists("images/images-ajoutées/activité-".$photos[$i]['id'].".jpg"))
-        { $fiche = $photos[$i]['id_fiche']
+      { $fiche = $photos[$i]['id_fiche']
           ?>
           <div class="dernier_post">
             <a href="detail-fiche.php?id=<?php echo $fiche ?>">
@@ -96,8 +96,8 @@ include "debut-page.inc.php";
             </a>
           </div>
         <?php
-        }
       }
+    }
      ?>
   </div>
 
