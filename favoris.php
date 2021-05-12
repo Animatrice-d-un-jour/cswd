@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("connexion_base.php");
-$donnees['titre_page'] = "Favoris";
+
 
 include "debut-page.inc.php";
 ?>
@@ -56,6 +56,7 @@ include "debut-page.inc.php";
                 </div>
                 <div>
                   <a href="detail-fiche.php?id=<?php echo $favoris[$i]['id'] ?>" class="btn btn-primary rounded-pill espace">Consulter</a>
+                  <a href="supprimer-favoris.php?id=<?php echo $favoris[$i]['id'] ?>" class="btn btn-primary rounded-pill espace">Supprimer</a>
                 </div>
                 </div>
             <?php
@@ -73,6 +74,7 @@ include "debut-page.inc.php";
                    </div>
                    <div>
                      <a href="detail-fiche.php?id=<?php echo $favoris[$i]['id'] ?>" class="btn btn-primary rounded-pill color">Consulter</a>
+                     <a href="supprimer-favoris.php?id=<?php echo $favoris[$i]['id'] ?>" class="btn btn-primary rounded-pill espace">Supprimer</a>
                    </div>
                    </div>
                    <?php
@@ -86,7 +88,7 @@ include "debut-page.inc.php";
       }
       else
         {
-          echo "<p>Veuillez tout d'abord vous créer un compte pour ajouter des activités et jeux en favoris.</p>";
+          echo "<p>Veuillez tout d'abord vous créez un compte pour ajouter des activités et jeux en favoris.</p>";
           echo"<a href=\"inscription-formulaire.php\">S'inscrire</a>";
         }
       ?>
