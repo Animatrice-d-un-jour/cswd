@@ -3,7 +3,7 @@ session_start();
 require_once("connexion_base.php");
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
