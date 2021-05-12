@@ -66,30 +66,30 @@ include "debut-page.inc.php"; ?>
               <div>
                 <a href="detail-fiche.php?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill espace">Consulter</a>
               </div>
-              </div>
+            </div>
           <?php
-           }
-           else
-           { ?>
-               <div class="card">
-                 <div class="card-body">
-                   <h5 class="card-title"><?php echo $enregistrements[$i]['titre']." (@". $enregistrements[$i]['pseudo'].")";?></h5>
-                   <p class="card-text">
-                     AGE : <?php echo $enregistrements[$i]['tranche_age'] ?> <br>
-                     DUREE : <?php echo transforme($enregistrements[$i]['duree']); ?><br>
-                     THEME : <?php echo $enregistrements[$i]['nom'] ?><br>
-                   </p>
-                 </div>
-                 <div>
-                   <a href="detail-fiche.php?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill color">Consulter</a>
-                 </div>
-                 </div>
-                 <?php
-                }
+          }
+          else
+          { ?>
+           <div class="card">
+             <div class="card-body">
+               <h5 class="card-title"><?php echo $enregistrements[$i]['titre']." (@". $enregistrements[$i]['pseudo'].")";?></h5>
+               <p class="card-text">
+                 AGE : <?php echo $enregistrements[$i]['tranche_age'] ?> <br>
+                 DUREE : <?php echo transforme($enregistrements[$i]['duree']); ?><br>
+                 THEME : <?php echo $enregistrements[$i]['nom'] ?><br>
+               </p>
+             </div>
+             <div>
+               <a href="detail-fiche.php?id=<?php echo $enregistrements[$i]['id'] ?>" class="btn btn-primary rounded-pill color">Consulter</a>
+             </div>
+           </div>
+           <?php
+          }
 
-            } ?>
+        } ?>
 
-        </div>
+      </div>
 
       <?php
     }
