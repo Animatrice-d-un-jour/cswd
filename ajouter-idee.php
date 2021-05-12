@@ -39,29 +39,27 @@ include "debut-page.inc.php";
       <li class="breadcrumb-item active" aria-current="page">Récapitulatif</li>
     </ol>
   </nav>
-<h2>Récapitulatif</h2>
-<p>Merci beaucoup ! Votre super idée a été envoyée. Vous recevrez un mail à l'adresse suivante  : <?php echo $email; ?> si votre idée est retenue.  </p>
-<ul>
-  <li><strong>Type :</strong> <?php echo $types[0]['nom']; ?></li>
-  <li><strong>Age :</strong> <?php echo $ages[0]['tranche_age']; ?></li>
-  <li><strong>Thème :</strong> <?php echo $themes[0]['nom']; ?></li>
+  <h2>Récapitulatif</h2>
+  <p>Merci beaucoup ! Votre super idée a été envoyée. Vous recevrez un mail à l'adresse suivante : <?php echo $email; ?> si votre idée est retenue. </p>
+  <ul>
+    <li><strong>Type :</strong> <?php echo $types[0]['nom']; ?></li>
+    <li><strong>Age :</strong> <?php echo $ages[0]['tranche_age']; ?></li>
+    <li><strong>Thème :</strong> <?php echo $themes[0]['nom']; ?></li>
     <li><strong>Durée :</strong> <?php echo $duree." minutes"; ?></li>
-  <li><strong>Titre :</strong> <?php echo $titre; ?></li>
-  <li><strong>Matériel nécessaire :</strong> <?php echo $materiel; ?></li>
-  <li><strong>Déroulement :</strong> <?php echo $deroulement; ?></li>
-</ul>
+    <li><strong>Titre :</strong> <?php echo $titre; ?></li>
+    <li><strong>Matériel nécessaire :</strong> <?php echo $materiel; ?></li>
+    <li><strong>Déroulement :</strong> <?php echo $deroulement; ?></li>
+  </ul>
 
+  <?php
+  // exécuter une requete MySQL de type INSERT
+  $requete="INSERT INTO projet_fiche (id_type,id_age,id_theme,duree,titre, materiel, deroulement,validation, pseudo,email,date_creation)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+  $reponse=$pdo->prepare($requete);
+  $reponse->execute(array($type, $age, $theme, $duree, $titre, $materiel, $deroulement, 0,$pseudo, $email));
+  ?>
 
-<?php
-// exécuter une requete MySQL de type INSERT
-$requete="INSERT INTO projet_fiche (id_type,id_age,id_theme,duree,titre, materiel, deroulement,validation, pseudo,email,date_creation)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
-$reponse=$pdo->prepare($requete);
-$reponse->execute(array($type, $age, $theme, $duree, $titre, $materiel, $deroulement, 0,$pseudo, $email));
-?>
-
-
-<p>Retourner au <a href="idee.php"> formulaire</a>  pour soumettre une idée ^^</p>
+  <p>Retourner au <a href="idee.php"> formulaire</a> pour soumettre une idée ^^</p>
 
 </main>
 
