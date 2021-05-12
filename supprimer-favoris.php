@@ -9,9 +9,9 @@ require_once("connexion_base.php");
   if (isset($_GET['id'])) {
     $id=$_GET['id'];
   }
-  $requete="DELETE FROM projet_membre_fiche WHERE projet_membre_fiche.id_fiche=$id;";
+  $requete="DELETE FROM projet_membre_fiche WHERE projet_membre_fiche.id_fiche=?;";
   $reponse = $pdo->prepare($requete);
-  $reponse->execute();
+  $reponse->execute(array($id));
   header("location:favoris.php");
   ?>
 <html>
