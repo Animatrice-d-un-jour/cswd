@@ -16,31 +16,31 @@ $nombreReponses = count($enregistrements);
 
 include "debut-page.inc.php";
  ?>
- <main class="fiches">
+<main class="fiches">
 
-   <nav aria-label="breadcrumb">
-     <ol class="breadcrumb">
-       <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
-       <?php if($enregistrements[0]['id_type']==1)
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.php">Accueil</a></li>
+      <?php if($enregistrements[0]['id_type']==1)
          {
         ?> <li class="breadcrumb-item"><a href="fiche.php?id=<?php echo $enregistrements[0]['id_type']; ?>">Jeux</a></li>
-      <?php
+         <?php
          }
          else if($enregistrements[0]['id_type']==2)
          { ?>
-           <li class="breadcrumb-item"><a href="fiche.php?id=<?php echo $enregistrements[0]['id_type']; ?>">Activités</a></li>
+            <li class="breadcrumb-item"><a href="fiche.php?id=<?php echo $enregistrements[0]['id_type']; ?>">Activités</a></li>
          <?php
          } ?>
-       <li class="breadcrumb-item"><a href="detail-fiche.php?id=<?php echo $fiche ?>"><?php echo $enregistrements[0]['titre']; ?></a></li>
-       <li class="breadcrumb-item active" aria-current="page">Récapitulatif photo</li>
-     </ol>
-   </nav>
+      <li class="breadcrumb-item"><a href="detail-fiche.php?id=<?php echo $fiche ?>"><?php echo $enregistrements[0]['titre']; ?></a></li>
+      <li class="breadcrumb-item active" aria-current="page">Récapitulatif photo</li>
+    </ol>
+  </nav>
 
- <h2>Récapitulatif</h2>
+  <h2>Récapitulatif</h2>
 
-<?php
-if (!empty($_POST['fiche']) AND !empty($_SESSION['id_projet_membre']))
-{
+  <?php
+  if (!empty($_POST['fiche']) AND !empty($_SESSION['id_projet_membre']))
+  {
     // exécuter une requete MySQL de type INSERT
     $requete="INSERT INTO projet_photo (id_membre, id_fiche, valide, date_ajout) VALUES (?,?,?,NOW())";
     $reponse=$pdo->prepare($requete);
@@ -85,9 +85,9 @@ if (!empty($_POST['fiche']) AND !empty($_SESSION['id_projet_membre']))
             $titre = $enregistrements[0]['titre'];
             echo "<p>Retourner sur la page <a href=\"detail-fiche.php?id=$fiche\"> $titre </a></p>";
           }
-        }
-        ?>
+  }
+  ?>
 
- </main>
+</main>
 
- <?php include "fin-page.inc.php";  ?>
+<?php include "fin-page.inc.php";  ?>
