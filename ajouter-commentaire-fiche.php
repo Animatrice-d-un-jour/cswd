@@ -25,34 +25,34 @@ include "debut-page.inc.php";
       <?php if($enregistrements[0]['id_type']==1)
         {
        ?> <li class="breadcrumb-item"><a href="fiche.php?id=<?php echo $enregistrements[0]['id_type']; ?>">Jeux</a></li>
-     <?php
+      <?php
         }
         else if($enregistrements[0]['id_type']==2)
         { ?>
-          <li class="breadcrumb-item"><a href="fiche.php?id=<?php echo $enregistrements[0]['id_type']; ?>">Activités</a></li>
-        <?php
+      <li class="breadcrumb-item"><a href="fiche.php?id=<?php echo $enregistrements[0]['id_type']; ?>">Activités</a></li>
+      <?php
         } ?>
       <li class="breadcrumb-item"><a href="detail-fiche.php?id=<?php echo $fiche ?>"><?php echo $enregistrements[0]['titre']; ?></a></li>
       <li class="breadcrumb-item active" aria-current="page">Récapitulatif commentaire</li>
     </ol>
   </nav>
-<h2>Récapitulatif</h2>
-<p>Votre commentaire a été envoyé !  Nous le publierons dans les plus brefs délais. </p>
-<ul>
-  <li>Titre : <?php echo $titre; ?></li>
-  <li>Votre commentaire : <?php echo $commentaire; ?></li>
-</ul>
+  <h2>Récapitulatif</h2>
+  <p>Votre commentaire a été envoyé ! Nous le publierons dans les plus brefs délais. </p>
+  <ul>
+    <li>Titre : <?php echo $titre; ?></li>
+    <li>Votre commentaire : <?php echo $commentaire; ?></li>
+  </ul>
 
-<?php
+  <?php
 
-// exécuter une requete MySQL de type INSERT
-$requete="INSERT INTO projet_commentaire (id_membre,id_fiche,titre, texte, valide,date)
-VALUES (?, ?, ?, ?, ?, NOW())";
-$reponse=$pdo->prepare($requete);
-$reponse->execute(array($id_membre, $fiche, $titre, $commentaire, 0));
-?>
+  // exécuter une requete MySQL de type INSERT
+  $requete="INSERT INTO projet_commentaire (id_membre,id_fiche,titre, texte, valide,date)
+  VALUES (?, ?, ?, ?, ?, NOW())";
+  $reponse=$pdo->prepare($requete);
+  $reponse->execute(array($id_membre, $fiche, $titre, $commentaire, 0));
+  ?>
 
-<a href="detail-fiche.php?id=<?php echo $fiche ?>">Retourner à la fiche d'activité/jeu</a>
+  <a href="detail-fiche.php?id=<?php echo $fiche ?>">Retourner à la fiche d'activité/jeu</a>
 
 </main>
 
